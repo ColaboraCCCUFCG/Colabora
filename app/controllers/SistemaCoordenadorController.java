@@ -32,10 +32,11 @@ public class SistemaCoordenadorController extends Controller {
 	
 	@Transactional
 	public static Result sistemaCoordenador() {
-		
-		
 		return ok(sistemaCoordenador.render(retornaDisciplinasCadastradas()));
     }
 	
-	
+	@Transactional	
+	public static Result listDisciplinas() {
+        return ok(listDisciplinas.render(retornaDisciplinasCadastradas()));
+    }
 }

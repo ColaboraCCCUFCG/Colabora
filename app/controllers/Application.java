@@ -55,9 +55,7 @@ public class Application extends Controller {
         return ok(newdisciplina.render("Your new application is ready."));
     }
 
-	public static Result listDisciplinas() {
-        return ok(listDisciplinas.render("Your new application is ready."));
-    }
+	
 }
 
 
