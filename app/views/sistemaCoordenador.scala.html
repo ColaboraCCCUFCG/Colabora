@@ -7,16 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    
-   
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Horário</title>
     
      <!-- Bootstrap CSS -->
+    
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
   	<!-- Custom CSS -->
   	<link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/sb-admin-2.css")'>
+  	<link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/tabela.css")'>
+  	
  
   </head>
 
@@ -206,6 +207,7 @@
 
             <!-- quarta -->
             <td id='qua-12'>
+            @disciplinaCoordenador(disciplinas)
             </td>
 
             <!-- quinta -->
@@ -386,6 +388,4 @@
   <!-- scripts -->
   
   </body>
-	<div id="f">
-	</div>
 </html>

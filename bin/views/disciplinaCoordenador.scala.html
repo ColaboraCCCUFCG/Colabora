@@ -1,14 +1,14 @@
 @(disciplinas: List[Disciplina])
 @for(disciplina <- disciplinas) {
-	<div class="panel panel-primary redips-drag">
+	<div class="panel panel-primary redips-drag" style="margin-bottom:4px">
 		<div class="panel-heading">
 			<h4 class="panel-title text-center">
 				<a data-toggle="collapse" data-parent="#accordion"
-					href="#collapseThreelesatalBD2">@disciplina.getAbreviatura()</a>
+					href="#collapseThree">@disciplina.getAbreviatura()</a>
 			</h4>
 		</div>
 	
-		<div id="collapseThreelesatalBD2" class="panel-collapse collapse">
+		<div id="collapseThree" + @disciplina.getAbreviatura() class="panel-collapse collapse">
 			<div class="panel-body">
 				Sala: @disciplina.getSala() <br> Professor: @disciplina.getProfessor()
 			</div>

@@ -256,6 +256,11 @@ table.dataTable thead .sorting:after {
     color: rgba(50,50,50,.5);
 }
 
+.panel-body2 {
+  padding: 15px;
+  background: #87CEEB;
+}
+
 .btn-circle {
     width: 30px;
     height: 30px;

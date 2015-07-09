@@ -1,21 +1,16 @@
 package models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 
 
-@Entity(name = "Pessoa")
+@Entity
 public class Usuario{
 	// Gerador de Sequencia para o Id
 	// Todo Id tem que ter o GeneratedValue a não ser que ele seja setado
 	@Id
 	@SequenceGenerator(name = "PESSOA_SEQUENCE", sequenceName = "PESSOA_SEQUENCE", allocationSize = 1, initialValue = 0)
 	@GeneratedValue(strategy = GenerationType.TABLE)
-	// Usar Id sempre Long
+
 	private Long id;
 	
 	@Column
@@ -24,14 +19,18 @@ public class Usuario{
 	@Column
 	private String email;
 	
+	@Column
+	private boolean isAluno;
+	
 	// Construtor vazio para o Hibernate criar os objetos
 	public Usuario (){
 		
 	}
 	
-	public Usuario (String nome, String email){
+	public Usuario (String nome, String email, boolean isAluno){
 		this.email = email;
 		this.nome = nome;
+		this.isAluno = isAluno;
 	}
 
 	public String getNome() {
@@ -57,6 +56,14 @@ public class Usuario{
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	public boolean getIsAluno() {
+		return isAluno;
+	}
+
+	public void setIsAluno(boolean isAluno) {
+		this.isAluno = isAluno;
+	}
 
 	@Override
 	public int hashCode() {
@@ -64,6 +71,7 @@ public class Usuario{
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + (isAluno ? 1231 : 1237);
 		return result;
 	}
 
@@ -85,6 +93,8 @@ public class Usuario{
 			if (other.nome != null)
 				return false;
 		} else if (!nome.equals(other.nome))
+			return false;
+		if (isAluno != other.isAluno)
 			return false;
 		return true;
 	}	

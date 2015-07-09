@@ -14,6 +14,16 @@ public class Global extends GlobalSettings {
 		JPA.withTransaction(new play.libs.F.Callback0() {
 			@Override
 			public void invoke() throws Throwable {
+				
+				//USUARIOS
+				Usuario u1 = new Usuario("Isabelly Cavalcante", "isabelly.cavalcante@ccc.ufcg.edu.br", true);
+				Usuario u2 = new Usuario("Gleyser Guimarães", "gleyser.bonfim.guimaraes@ccc.ufcg.edu.br", true);
+				Usuario u3 = new Usuario("Francisco Neto", "francisco.neto@computacao.ufcg.edu.br", false);
+				DAO.persist(u1);
+				DAO.persist(u2);
+				DAO.persist(u3);
+				DAO.flush();
+				
 				// Eh aqui que vamos adicionar as disciplinas, todas elas!
 				
 				// comecando pelas disciplinas da segunda de 8h
