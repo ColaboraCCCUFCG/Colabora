@@ -1,4 +1,4 @@
-@(disciplinas: List[Disciplina])
+@(message: String)
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -6,77 +6,22 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-
-    <title>Horário</title>
+	<title>Horário</title>
     
      <!-- Bootstrap CSS -->
-    
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
   	<!-- Custom CSS -->
   	<link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/sb-admin-2.css")'>
-  	<link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/tabela.css")'>
-  	
  
   </head>
 
 
-<body onload="REDIPS.drag.init()">
+<body>
   <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
     <h2 style="margin-bottom:0px;margin-top:10px;text-align:center">Horário Atual</h2>
     <ul class="nav navbar-top-links navbar-right" style="margin:0px">
-    
-    <!-- drop 1 -->
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="glyphicon glyphicon-tasks"></i>  <i class="glyphicon glyphicon-chevron-down"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-tasks">
-                <li class="divider"></li>
-                <li>
-                    <a href='/newdisciplina'><strong>Adicionar disciplina</strong></a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="/listDisciplinas"><strong>Consultar disciplinas</strong></a>
-                </li>
-
-            </ul>
-        </li>
-        
-        <!-- drop 2 -->
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="glyphicon glyphicon-bell"></i>  <i class="glyphicon glyphicon-chevron-down"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-alerts">
-                <li>
-                    <a href="#">
-                        <i class="glyphicon glyphicon-comment"></i> LES - turma 2
-                        <span class="pull-right text-muted small">4 minutes ago</span>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">
-                        <i class="glyphicon glyphicon-comment"></i> Redes dá choque com PLP
-                        <span class="pull-right text-muted small">12 minutes ago</span>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <i class="glyphicon glyphicon-comment"></i> Quero pagar teoria e si1
-                            <span class="pull-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <!-- drop 3 -->
+ 
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="glyphicon glyphicon-user"></i>  <i class="glyphicon glyphicon-chevron-down"></i>
@@ -90,7 +35,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="/"><i class="glyphicon glyphicon-off"></i> Logout</a>
+                    <a href="login.html"><i class="glyphicon glyphicon-off"></i> Logout</a>
                 </li>
             </ul>
         </li>
@@ -128,7 +73,20 @@
 
             <!-- quarta -->
             <td id='qua-7'>
-		
+				<div class="panel panel-primary redips-drag" >
+				  <div class="panel-heading">
+						<h4 class="panel-title text-center">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseThreelesatalBD2">BD2</a>
+						</h4>
+					</div>
+						
+					<div id="collapseThreelesatalBD2" class="panel-collapse collapse">
+						<div class="panel-body">
+							Sala: "CD 105" <br>
+							Professor: "Carlos"
+						</div>
+                    </div>
+              </div>
           
            
             </td>
@@ -164,7 +122,20 @@
 
             <!-- sexta -->
             <td id='sex-8'>
-                @disciplinaCoordenador(disciplinas)
+                <div class="panel panel-primary redips-drag" >
+                      <div class="panel-heading">
+                            <h4 class="panel-title text-center">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThreelesatalOAC">OAC</a>
+                            </h4>
+                        </div>
+
+                        <div id="collapseThreelesatalOAC" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Sala: "CAA 408" <br>
+                                Professor: "Joseana"
+                            </div>
+                        </div>
+                  </div>
             </td>                                
           </tr>
 
@@ -207,7 +178,6 @@
 
             <!-- quarta -->
             <td id='qua-12'>
-            @disciplinaCoordenador(disciplinas)
             </td>
 
             <!-- quinta -->
@@ -325,7 +295,7 @@
   </div>
   <!-- fim tabela disciplinas -->
   
-   <!-- Modal -->
+  <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -334,57 +304,32 @@
                 <h4 class="modal-title" id="myModalLabel">Editar disciplina - OAC(aqui tem q trazer o nome da disciplina que abre)</h4>
             </div>
             <div class="modal-body">
-<div class="control-group">
-			  <label class="control-label" for="textinput">Código</label>
-			  <div class="controls">
-				<input id="textinput" name="textinput" type="text" placeholder="Código da disciplina" style='width:256px;'>
-				
-			  </div>
-			</div>
 
-			<!-- Text input-->
-			<div class="control-group">
-			  <label class="control-label" for="textinput">Nome</label>
-			  <div class="controls">
-				<input id="textinput" name="textinput" type="text" placeholder="Nome da disciplina" style='width:256px;'>
-				
-			  </div>
-			</div>
+            <input class="form-control" placeholder="editar o nome da disciplina">
+                <br>
+                <label>Selecione o novo horário:</label>
+                <select class="form-control">
+                    <option>7</option>
+                    <option>8</option>
+                    <option>10</option>
+                    <option>12</option>
+                    <option>14</option>
+                    <option>16</option>
+                    <option>18</option>
+                    <option>20</option>
+                </select>
+                <br>
+                <label>Selecione o professor:</label>
+                    <div class="form-group input-group">
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                    <br>
+                    </div>
 
-			<!-- Text input-->
-			<div class="control-group">
-			  <label class="control-label" for="textinput">Créditos</label>
-			  <div class="controls">
-				<input id="textinput" name="textinput" type="text" placeholder="Quantidade de créditos" style='width:256px;'>
-				
-			  </div>
-			</div>
-
-			<!-- Text input-->
-			<div class="control-group">
-			  <label class="control-label" for="textinput">Professor</label>
-			  <div class="controls">
-				<input id="textinput" name="textinput" type="text" placeholder="Nome do professor" style='width:256px;'>
-				
-			  </div>
-			</div>
-
-			<!-- Text input-->
-			<div class="control-group">
-			  <label class="control-label" for="textinput">Abreviatura</label>
-			  <div class="controls">
-				<input id="textinput" name="textinput" type="text" placeholder="Abreviatura da disciplina" style='width:256px;'>
-				
-			  </div>
-			</div>
-			<div class="control-group">
-			  <label class="control-label" for="textinput">Sala</label>
-			  <div class="controls">
-				<input id="textinput" name="textinput" type="text" placeholder="Sala da disciplina" style='width:256px;'>
-				
-			  </div>
-			</div>
-			
+                <input class="form-control" placeholder="editar a sala da disciplina">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -400,6 +345,7 @@
 <!-- /.modal -->
 
 
+
  
   
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -412,4 +358,6 @@
   <!-- scripts -->
   
   </body>
+	<div id="f">
+	</div>
 </html>
