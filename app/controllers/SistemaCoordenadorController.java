@@ -28,6 +28,15 @@ public class SistemaCoordenadorController extends Controller {
 	public static Result listDisciplinas() {
         return ok(listDisciplinas.render(retornaDisciplinasCadastradas()));
     }
-
+	
+	@Transactional	
+	public static Result addDisciplinas() {
+        return ok(addDisciplina.render(retornaDisciplinasCadastradas()));
+    }
+	
+	@Transactional	
+	public static Result novaDisciplina() {
+        return ok(newdisciplina.render("Your new application is ready."));
+    }
 }
 

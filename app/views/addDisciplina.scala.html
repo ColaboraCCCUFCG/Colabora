@@ -1,0 +1,71 @@
+@(disciplinas: List[Disciplina])
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>Nova Disciplina</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/main.css")'>
+	<link rel="shortcut icon" type="image/png" href='@routes.Assets.versioned("images/favicon.png")'>
+
+  </head>
+
+  <body>
+	  
+	<!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          <center><img class="centralizar" src='@routes.Assets.versioned("images/logo.jpg")' /></center>
+      </div>
+    </div>
+
+	<div class="container">
+        <!--FORM PARA CRIAR NOVA DISCIPLINA-->
+		<center>
+		<form class="form-horizontal">
+			<fieldset>
+			</br>
+			<!-- Form Name -->
+			<h1>Disciplinas</h1>
+
+			<!-- Multiple Checkboxes -->
+			<div class="control-group">
+			  <label class="control-label" for="checkboxes"></label>
+				<center>
+			 <div class="controls" style="text-align: left;">
+				@for(disciplina <- disciplinas) {
+				<label class="checkbox" for="checkboxes-0">
+				  
+					  <input type="checkbox" name="checkboxes" value="@disciplina.getNome()">
+					  @disciplina.getNome()
+				  
+				</label>
+				}
+			  </div>
+			  
+			</div>
+			</br>
+			<div class="control-group">
+			  <div class="controls">
+				<button class="btn btn-success" type="submit">Adicionar disciplina(s)</button>
+				<a href="/novaDisciplina" class="btn btn-warning">Criar nova disciplina</a>
+			  </div>
+			</div>
+			</br>
+		</fieldset>
+		</form>
+
+		</center>
+    </div>
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+	<div id="f">
+	</div>
+</html>
