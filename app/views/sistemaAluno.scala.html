@@ -1,4 +1,4 @@
-@(message: String)
+@(disciplinas: List[Disciplina])
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -6,13 +6,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Horário</title>
     
-     <!-- Bootstrap CSS -->
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+	<title>Horário</title>
+	
+	<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
   	<!-- Custom CSS -->
   	<link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/sb-admin-2.css")'>
+  	<link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/tabela.css")'>
+  	
  
   </head>
 
@@ -35,7 +38,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="login.html"><i class="glyphicon glyphicon-off"></i> Logout</a>
+                    <a href="/"><i class="glyphicon glyphicon-off"></i> Logout</a>
                 </li>
             </ul>
         </li>
@@ -69,34 +72,22 @@
 
             <!-- terça -->
             <td id='ter-7'>
+            
             </td>
 
             <!-- quarta -->
             <td id='qua-7'>
-				<div class="panel panel-primary redips-drag" >
-				  <div class="panel-heading">
-						<h4 class="panel-title text-center">
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapseThreelesatalBD2">BD2</a>
-						</h4>
-					</div>
-						
-					<div id="collapseThreelesatalBD2" class="panel-collapse collapse">
-						<div class="panel-body">
-							Sala: "CD 105" <br>
-							Professor: "Carlos"
-						</div>
-                    </div>
-              </div>
-          
            
             </td>
-
+            
             <!-- quinta -->
             <td id='qui-7'>
+            
             </td>
 
             <!-- sexta -->
             <td id='sex-7'>
+            
             </td>                                
           </tr>
 
@@ -122,20 +113,7 @@
 
             <!-- sexta -->
             <td id='sex-8'>
-                <div class="panel panel-primary redips-drag" >
-                      <div class="panel-heading">
-                            <h4 class="panel-title text-center">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThreelesatalOAC">OAC</a>
-                            </h4>
-                        </div>
-
-                        <div id="collapseThreelesatalOAC" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                Sala: "CAA 408" <br>
-                                Professor: "Joseana"
-                            </div>
-                        </div>
-                  </div>
+            	@disciplinaAluno(disciplinas)
             </td>                                
           </tr>
 
@@ -178,6 +156,7 @@
 
             <!-- quarta -->
             <td id='qua-12'>
+            	@disciplinaAluno(disciplinas)
             </td>
 
             <!-- quinta -->

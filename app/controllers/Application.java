@@ -23,18 +23,21 @@ public class Application extends Controller {
     	if (formPreenchido.hasErrors()) {
             return badRequest(login.render("Error"));
         } else {
-            Usuario login = formPreenchido.get();
+            Usuario loginRecebido = formPreenchido.get();
             
             for (Usuario usuario : todosUsuarios) {
-    			if (usuario.getEmail().equals(login.getEmail()) && usuario.getSenha().equals(login.getSenha())){
-    				if (!usuario.getIsAluno()){
+    			if (usuario.getEmail().equals(loginRecebido.getEmail()) && usuario.getSenha().equals(loginRecebido.getSenha())){
+    				if (usuario.getIsAluno()){
+    					return sistemaAluno() ;
+    				} else {
     					return SistemaCoordenadorController.sistemaCoordenador();
     				}
     			}
     		}
+            return ok(login.render("Email ou senha incorretos!"));
         }
     	
-    	return ok(login.render("Your new application is ready."));
+    	//return ok(login.render("Your new application is ready."));
     }
 
     public static Result contato() {
@@ -45,6 +48,14 @@ public class Application extends Controller {
 	public static Result newdisciplina() {
         return ok(newdisciplina.render("Your new application is ready."));
     }
+	
+	public static Result sistemaAluno(){
+		return ok(sistemaAluno.render(retornaDisciplinasCadastradas()));
+	}
+	
+	private static List<Disciplina> retornaDisciplinasCadastradas(){
+		return DAO.findAllByClass(Disciplina.class);
+	}
 
 }
 
