@@ -14,7 +14,6 @@ import views.html.*;
 public class Application extends Controller {
     private static final GenericDAO DAO = new GenericDAO();
     private static Form<Usuario> form = Form.form(Usuario.class);
-    private static Form<String> formString = Form.form(String.class);
     
     @Transactional
     public static Result login() {
@@ -35,14 +34,9 @@ public class Application extends Controller {
     		}
         }
     	
-  
     	return ok(login.render("Your new application is ready."));
     }
 
-	private static List<Usuario> retornaUsuariosCadastrados(){
-		return DAO.findAllByClass(Usuario.class);
-	}
-    
     public static Result contato() {
         return ok(contato.render("Your new application is ready."));
     }    

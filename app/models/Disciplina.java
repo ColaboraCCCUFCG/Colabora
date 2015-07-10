@@ -110,7 +110,7 @@ public class Disciplina {
 		this.estaNoHorario = true;
 	}
 
-	public List<Horario> getHorariosDaDisciplina() {
+	public List<Horario> getHorariosDaDisciplina() {	
 		return horariosDaDisciplina;
 	}
 

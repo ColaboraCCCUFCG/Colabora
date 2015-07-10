@@ -28,4 +28,6 @@ public class SistemaCoordenadorController extends Controller {
 	public static Result listDisciplinas() {
         return ok(listDisciplinas.render(retornaDisciplinasCadastradas()));
     }
+
 }
+

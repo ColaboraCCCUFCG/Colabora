@@ -17,4 +17,6 @@ GET     /contato                    controllers.Application.contato()
 # Horário
 POST    /horario               		controllers.SistemaCoordenadorController.sistemaCoordenador()
 GET		/newdisciplina				controllers.Application.newdisciplina()
+
 GET		/listDisciplinas			controllers.SistemaCoordenadorController.listDisciplinas()
+
