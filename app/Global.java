@@ -16,9 +16,9 @@ public class Global extends GlobalSettings {
 			public void invoke() throws Throwable {
 				
 				//USUARIOS
-				Usuario u1 = new Usuario("Isabelly Cavalcante", "isabelly.cavalcante@ccc.ufcg.edu.br", true);
-				Usuario u2 = new Usuario("Gleyser Guimarães", "gleyser.bonfim.guimaraes@ccc.ufcg.edu.br", true);
-				Usuario u3 = new Usuario("Francisco Neto", "francisco.neto@computacao.ufcg.edu.br", false);
+				Usuario u1 = new Usuario("isabelly.cavalcante@ccc.ufcg.edu.br", "123", true);
+				Usuario u2 = new Usuario("gleyser.bonfim.guimaraes@ccc.ufcg.edu.br", "123", true);
+				Usuario u3 = new Usuario("francisco.neto@computacao.ufcg.edu.br", "1234", false);
 				DAO.persist(u1);
 				DAO.persist(u2);
 				DAO.persist(u3);

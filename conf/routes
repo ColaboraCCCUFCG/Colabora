@@ -3,18 +3,18 @@
 # ~~~~
 
 # Home page
-GET        /                    controllers.Application.login()
+GET       /                    controllers.Application.login()
+POST       /                    controllers.Application.login()
 
 
 # Map static resources from the /public folder to the /assets URL path
 GET        /assets/*file        controllers.Assets.versioned(path="/public", file)
 GET        /assets/*file        controllers.Assets.at(path="/public", file)
 
-POST    /horario               		controllers.SistemaCoordenadorController.sistemaCoordenador()
-
 # Contato
 GET     /contato                    controllers.Application.contato()
 
 # Horário
+POST    /horario               		controllers.SistemaCoordenadorController.sistemaCoordenador()
 GET		/newdisciplina				controllers.Application.newdisciplina()
-GET		/listDisciplinas			controllers.Application.listDisciplinas()
+GET		/listDisciplinas			controllers.SistemaCoordenadorController.listDisciplinas()

@@ -114,6 +114,14 @@ public class Disciplina {
 		return horariosDaDisciplina;
 	}
 
+	public String getHorariosDaDisciplinaToString() {	
+		String horarios = "";
+		for (Horario h: horariosDaDisciplina)	{
+			horarios += h.getDiaDaSemana() +"-"+ h.getHorarioDeInicioDaAUla() + "     ";
+		}
+		return horarios;
+	}
+	
 	public void setHorariosDaDisciplina(List<Horario> horariosDaDisciplina) {
 		this.horariosDaDisciplina = horariosDaDisciplina;
 	}

@@ -1,14 +1,12 @@
 package controllers;
 
-import java.util.List;
-
+import java.util.*;
 import models.*;
 import models.dao.*;
-
+import play.*;
+import play.mvc.*;
 import views.html.*;
 import play.db.jpa.Transactional;
-import play.mvc.Controller;
-import play.mvc.Result;
 
 public class SistemaCoordenadorController extends Controller {
 	
@@ -26,5 +24,8 @@ public class SistemaCoordenadorController extends Controller {
 		return ok(sistemaCoordenador.render(retornaDisciplinasCadastradas()));
     }
 	
-	
+	@Transactional	
+	public static Result listDisciplinas() {
+        return ok(listDisciplinas.render(retornaDisciplinasCadastradas()));
+    }
 }

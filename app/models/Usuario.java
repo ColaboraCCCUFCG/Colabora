@@ -14,7 +14,7 @@ public class Usuario{
 	private Long id;
 	
 	@Column
-	private String nome;
+	private String senha;
 	
 	@Column
 	private String email;
@@ -27,18 +27,18 @@ public class Usuario{
 		
 	}
 	
-	public Usuario (String nome, String email, boolean isAluno){
+	public Usuario (String email, String senha, boolean isAluno){
 		this.email = email;
-		this.nome = nome;
+		this.senha = senha;
 		this.isAluno = isAluno;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public String getEmail() {
@@ -70,7 +70,7 @@ public class Usuario{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
 		result = prime * result + (isAluno ? 1231 : 1237);
 		return result;
 	}
@@ -89,10 +89,10 @@ public class Usuario{
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (nome == null) {
-			if (other.nome != null)
+		if (senha == null) {
+			if (other.senha != null)
 				return false;
-		} else if (!nome.equals(other.nome))
+		} else if (!senha.equals(other.senha))
 			return false;
 		if (isAluno != other.isAluno)
 			return false;
