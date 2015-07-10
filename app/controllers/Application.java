@@ -56,6 +56,10 @@ public class Application extends Controller {
 	private static List<Disciplina> retornaDisciplinasCadastradas(){
 		return DAO.findAllByClass(Disciplina.class);
 	}
+	
+	public static Result alterarSenha(){
+		return ok(alterarSenha.render("String"));
+	}
 
 }
 

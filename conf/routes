@@ -23,5 +23,9 @@ GET		/newdisciplina				controllers.Application.newdisciplina()
 GET		/adicionaDisciplina			controllers.SistemaCoordenadorController.addDisciplinas()
 GET		/novaDisciplina				controllers.SistemaCoordenadorController.novaDisciplina()
 
+#Usuario
+GET     /alterarSenha               controllers.Application.alterarSenha()
+POST     /alterarSenha               controllers.Application.alterarSenha()
+
 
 
