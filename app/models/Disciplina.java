@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
+import java.util.Random;
+
 @Entity
 public class Disciplina {
 	
@@ -37,6 +39,12 @@ public class Disciplina {
 	private String abreviatura;
 	
 	@Column
+	private String codigo;
+	
+	@Column
+	private int creditos;
+	
+	@Column
 	private boolean estaNoHorario;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
@@ -48,11 +56,13 @@ public class Disciplina {
 		
 	}
 	
-	public Disciplina(String nome, String professor, String sala, String abreviatura){
+	public Disciplina(String nome, String professor, String sala, String abreviatura, int creditos, String codigo){
 		this.nome  = nome;
 		this.professor = professor;
 		this.sala = sala;
 		this.abreviatura = abreviatura;
+		this.creditos = creditos;
+		this.codigo = codigo;
 		this.estaNoHorario = false;
 		this.horariosDaDisciplina = new ArrayList<Horario>();
 		
@@ -117,7 +127,7 @@ public class Disciplina {
 	public String getHorariosDaDisciplinaToString() {	
 		String horarios = "";
 		for (Horario h: horariosDaDisciplina)	{
-			horarios += h.getDiaDaSemana() +"-"+ h.getHorarioDeInicioDaAUla() + "     ";
+			horarios += h.getDiaDaSemana() +"-"+ h.getHorarioDeInicioDaAula() + "     ";
 		}
 		return horarios;
 	}
@@ -136,6 +146,12 @@ public class Disciplina {
 		}
 		
 	}
+	
+	public String retornaIDUnico(String dia){
+		return this.id.toString() + dia;
+	}
+	
+	
 
 	@Override
 	public int hashCode() {

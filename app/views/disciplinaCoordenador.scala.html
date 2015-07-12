@@ -1,14 +1,15 @@
-@(disciplinas: List[Disciplina])
+@(disciplinas: List[Disciplina], dia:String)
+
 @for(disciplina <- disciplinas) {
 	<div class="panel panel-primary redips-drag" style="margin-bottom:4px">
 		<div class="panel-heading">
 			<h4 class="panel-title text-center">
 				<a data-toggle="collapse" data-parent="#accordion"
-					href="#@disciplina.getId()">@disciplina.getAbreviatura()</a>
+					href="#@disciplina.retornaIDUnico(dia)">@disciplina.getAbreviatura()</a>
 			</h4>
 		</div>
 	
-		<div id="@disciplina.getId()" class="panel-collapse collapse">
+		<div id="@disciplina.retornaIDUnico(dia)" class="panel-collapse collapse">
 			<div class="panel-body">
 				Sala: @disciplina.getSala() <br> Professor: @disciplina.getProfessor()
 			</div>

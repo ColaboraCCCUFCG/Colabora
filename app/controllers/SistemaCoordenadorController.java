@@ -21,13 +21,36 @@ public class SistemaCoordenadorController extends Controller {
 	
 	@Transactional
 	public static Result sistemaCoordenador() {
-		return ok(sistemaCoordenador.render(retornaDisciplinasCadastradas()));
+		AuxiliadorDeHorario auxiliador = new AuxiliadorDeHorario(retornaDisciplinasCadastradas());
+		return ok(sistemaCoordenador.render(auxiliador));
     }
+	
+	@Transactional
+	private static List<Disciplina> retornaDisciplinasNesseDiaEHorario(DiaDaSemana sexta, int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	@Transactional	
 	public static Result listDisciplinas() {
         return ok(listDisciplinas.render(retornaDisciplinasCadastradas()));
     }
+	
+	@Transactional	
+	public static Result addDisciplinas() {
+        return ok(addDisciplina.render(retornaDisciplinasCadastradas()));
+    }
+	
+	@Transactional	
+	public static Result novaDisciplina() {
+        return ok(newdisciplina.render("Your new application is ready."));
+    }
+	
+	
+
+	
+	
+	
 
 }
 

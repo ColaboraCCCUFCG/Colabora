@@ -1,4 +1,4 @@
-@(disciplinas: List[Disciplina])
+@(auxiliadorDeHorario: AuxiliadorDeHorario)
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -35,7 +35,7 @@
             <ul class="dropdown-menu dropdown-tasks">
                 <li class="divider"></li>
                 <li>
-                    <a href='/newdisciplina'><strong>Adicionar disciplina</strong></a>
+                    <a href='/adicionaDisciplina'><strong>Adicionar disciplina</strong></a>
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -119,26 +119,27 @@
             
             <!-- segunda -->
             <td id='seg-7'>
-				
+			@disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,7), "seg-7")	
             </td>
 
             <!-- terça -->
             <td id='ter-7'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,7), "ter-7")
             </td>
 
             <!-- quarta -->
             <td id='qua-7'>
-		
-          
-           
+			@disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,7), "qua-7'")
             </td>
 
             <!-- quinta -->
             <td id='qui-7'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,7), "qui-7")
             </td>
 
             <!-- sexta -->
             <td id='sex-7'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,7), "sex-7")
             </td>                                
           </tr>
 
@@ -148,23 +149,27 @@
             
             <!-- segunda -->
             <td id='seg-8'>
+             @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,8), "seg-8")
             </td>
 
             <!-- terça -->
             <td id='ter-8'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,8), "ter-8")
             </td>
 
             <!-- quarta -->
             <td id='qua-8'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,8), "qua-8")
             </td>
 
             <!-- quinta -->
             <td id='qui-8'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,8), "qui-8")
             </td>
 
             <!-- sexta -->
             <td id='sex-8'>
-                @disciplinaCoordenador(disciplinas)
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,8), "sex-8")
             </td>                                
           </tr>
 
@@ -174,22 +179,27 @@
             
             <!-- segunda -->
             <td id='seg-10'>
+           	@disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,10), "seg-10")
             </td>
 
             <!-- terça -->
             <td id='ter-10'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,10), "ter-10")
             </td>
 
             <!-- quarta -->
             <td id='qua-10'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,10), "qua-10")
             </td>
 
             <!-- quinta -->
             <td id='qui-10'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,10), "qui-10")
             </td>
 
             <!-- sexta -->
             <td id='sex-10'>
+             @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,10), "sex-10")
             </td>                                
           </tr>
 							
@@ -199,23 +209,27 @@
             
             <!-- segunda -->
             <td id='seg-12'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,12), "seg-12")
             </td>
 
             <!-- terça -->
             <td id='ter-12'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,12), "ter-12")
             </td>
 
             <!-- quarta -->
             <td id='qua-12'>
-            @disciplinaCoordenador(disciplinas)
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,12), "qua-12")
             </td>
 
             <!-- quinta -->
             <td id='qui-12'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,12), "qui-12")
             </td>
 
             <!-- sexta -->
             <td id='sex-12'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,12), "sex-12")
             </td>                                
           </tr>
 
@@ -225,22 +239,27 @@
             
             <!-- segunda -->
             <td id='seg-14'>
+             @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,14), "seg-14")
             </td>
 
             <!-- terça -->
             <td id='ter-14'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,14), "ter-14")
             </td>
 
             <!-- quarta -->
             <td id='qua-14'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,14), "qua-14")
             </td>
 
             <!-- quinta -->
             <td id='qui-14'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,14), "qui-14")
             </td>
 
             <!-- sexta -->
             <td id='sex-14'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,14),"sex-14")
             </td>                                
           </tr>
 
@@ -250,22 +269,27 @@
             
             <!-- segunda -->
             <td id='seg-16'>
+             @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,16), "seg-16")
             </td>
 
             <!-- terça -->
             <td id='ter-16'>
+             @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,16), "ter-16")
             </td>
 
             <!-- quarta -->
             <td id='qua-16'>
+             @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,16), "qua-16")
             </td>
 
             <!-- quinta -->
             <td id='qui-16'>
+             @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,16), "qui-16")
             </td>
 
             <!-- sexta -->
             <td id='sex-16'>
+             @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,16), "sex-16")
             </td>                                
           </tr>
 
@@ -275,22 +299,27 @@
             
             <!-- segunda -->
             <td id='seg-18'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,18), "seg-18")
             </td>
 
             <!-- terça -->
             <td id='ter-18'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,18), "ter-18")
             </td>
 
             <!-- quarta -->
             <td id='qua-18'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,18),"qua-18")
             </td>
 
             <!-- quinta -->
             <td id='qui-18'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,18), "qui-18")
             </td>
 
             <!-- sexta -->
             <td id='sex-18'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,18), "sex-18")
             </td>                                
           </tr>
 
@@ -301,22 +330,27 @@
             
             <!-- segunda -->
             <td id='seg-20'>
+            @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,20), "seg-20")
             </td>
 
             <!-- terça -->
             <td id='ter-20'>
+             @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,20), "ter-20")
             </td>
 
             <!-- quarta -->
             <td id='qua-20'>
+             @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,20), "qua-20")
             </td>
 
             <!-- quinta -->
             <td id='qui-20'>
+             @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,20),"qui-20")
             </td>
 
             <!-- sexta -->
             <td id='sex-20'>
+             @disciplinaCoordenador(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,20), "sex-20")
             </td>                                
           </tr>
         </tr>                        
@@ -325,7 +359,7 @@
   </div>
   <!-- fim tabela disciplinas -->
   
-  <!-- Modal -->
+   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -334,32 +368,57 @@
                 <h4 class="modal-title" id="myModalLabel">Editar disciplina - OAC(aqui tem q trazer o nome da disciplina que abre)</h4>
             </div>
             <div class="modal-body">
+<div class="control-group">
+			  <label class="control-label" for="textinput">Código</label>
+			  <div class="controls">
+				<input id="textinput" name="textinput" type="text" placeholder="Código da disciplina" style='width:256px;'>
+				
+			  </div>
+			</div>
 
-            <input class="form-control" placeholder="editar o nome da disciplina">
-                <br>
-                <label>Selecione o novo horário:</label>
-                <select class="form-control">
-                    <option>7</option>
-                    <option>8</option>
-                    <option>10</option>
-                    <option>12</option>
-                    <option>14</option>
-                    <option>16</option>
-                    <option>18</option>
-                    <option>20</option>
-                </select>
-                <br>
-                <label>Selecione o professor:</label>
-                    <div class="form-group input-group">
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </span>
-                    <br>
-                    </div>
+			<!-- Text input-->
+			<div class="control-group">
+			  <label class="control-label" for="textinput">Nome</label>
+			  <div class="controls">
+				<input id="textinput" name="textinput" type="text" placeholder="Nome da disciplina" style='width:256px;'>
+				
+			  </div>
+			</div>
 
-                <input class="form-control" placeholder="editar a sala da disciplina">
+			<!-- Text input-->
+			<div class="control-group">
+			  <label class="control-label" for="textinput">Créditos</label>
+			  <div class="controls">
+				<input id="textinput" name="textinput" type="text" placeholder="Quantidade de créditos" style='width:256px;'>
+				
+			  </div>
+			</div>
+
+			<!-- Text input-->
+			<div class="control-group">
+			  <label class="control-label" for="textinput">Professor</label>
+			  <div class="controls">
+				<input id="textinput" name="textinput" type="text" placeholder="Nome do professor" style='width:256px;'>
+				
+			  </div>
+			</div>
+
+			<!-- Text input-->
+			<div class="control-group">
+			  <label class="control-label" for="textinput">Abreviatura</label>
+			  <div class="controls">
+				<input id="textinput" name="textinput" type="text" placeholder="Abreviatura da disciplina" style='width:256px;'>
+				
+			  </div>
+			</div>
+			<div class="control-group">
+			  <label class="control-label" for="textinput">Sala</label>
+			  <div class="controls">
+				<input id="textinput" name="textinput" type="text" placeholder="Sala da disciplina" style='width:256px;'>
+				
+			  </div>
+			</div>
+			
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -373,7 +432,6 @@
 <!-- /.modal-dialog -->
   </div>
 <!-- /.modal -->
-
 
 
  

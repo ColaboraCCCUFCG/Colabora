@@ -23,7 +23,7 @@ public class Application extends Controller {
     	if (formPreenchido.hasErrors()) {
             return badRequest(login.render("Error"));
         } else {
-            Usuario login = formPreenchido.get();
+            Usuario loginRecebido = formPreenchido.get();
             
             for (Usuario usuario : todosUsuarios) {
     			if (usuario.getEmail().equals(login.getEmail()) && usuario.getSenha().equals(login.getSenha())){

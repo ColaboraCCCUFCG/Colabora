@@ -1,4 +1,4 @@
-@(title: String)
+@(message: String)
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -38,14 +38,18 @@
 	<!-- Login -->
     <div class="container">
 
-       <form class="form-signin" action="@routes.SistemaCoordenadorController.sistemaCoordenador()" method="post">
+       <form class="form-signin" action="@routes.Application.login()" method="POST">
       
         <h2 class="form-signin-heading"><center>Login</center></h2>
         
-        <label for="email" class="sr-only">email</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="senha" class="sr-only">senha</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="form-group">
+        	<label for="inputEmail"></label>
+        	<input name="email" type="text" class="form-control" id="inputEmail" placeholder="Email" required>
+      
+        	<label for="inputSenha"></label>
+        	<input name="senha" type="password" class="form-control" id="inputSenha" placeholder="Senha" required>
+		</div>
+       
         <center>
         <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
         
