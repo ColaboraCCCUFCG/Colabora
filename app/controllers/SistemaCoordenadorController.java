@@ -45,12 +45,6 @@ public class SistemaCoordenadorController extends Controller {
 	public static Result novaDisciplina() {
         return ok(newdisciplina.render("Your new application is ready."));
     }
-	
-	
-
-	
-	
-	
 
 }
 
