@@ -36,9 +36,11 @@ public class SistemaCoordenadorController extends Controller {
         return ok(listDisciplinas.render(retornaDisciplinasCadastradas()));
     }
 	
+	// vou mandar pra view apenas aquelas que não estão atualmente no horario
 	@Transactional	
-	public static Result addDisciplinas() {
-        return ok(addDisciplina.render(retornaDisciplinasCadastradas()));
+	public static Result addDisciplinasAoHorario() {
+		AuxiliadorDeHorario auxiliador = new AuxiliadorDeHorario(retornaDisciplinasCadastradas());
+        return ok(addDisciplina.render(auxiliador.retornaDisciplinasQueNãoDevemSerExibidasNoHorário()));
     }
 	
 	@Transactional	

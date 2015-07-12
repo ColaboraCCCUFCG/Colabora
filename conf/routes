@@ -20,7 +20,7 @@ GET		/horarioAluno				controllers.Application.sistemaAluno()
 GET		/newdisciplina				controllers.Application.newdisciplina()
 
 #Disciplina
-GET		/adicionaDisciplina			controllers.SistemaCoordenadorController.addDisciplinas()
+GET		/adicionaDisciplina			controllers.SistemaCoordenadorController.addDisciplinasAoHorario()
 GET		/novaDisciplina				controllers.SistemaCoordenadorController.novaDisciplina()
 
 #Usuario
