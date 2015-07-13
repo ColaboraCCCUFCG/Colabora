@@ -17,7 +17,7 @@
 			<div class="panel-body2">
 				<center>
 					<button type="button" class="btn btn-primary btn-circle"
-						data-toggle="modal" data-target="#myModal">
+						data-toggle="modal" data-target="#@disciplina.getId()">
 						<i class="glyphicon glyphicon-edit"></i>
 					</button>
 					<button type="button" class="btn btn-primary btn-circle">
@@ -27,4 +27,80 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- Modal -->
+  <div class="modal fade" id="@disciplina.getId()" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Editar disciplina - @disciplina.getNome()</h4>
+            </div>
+            <div class="modal-body">
+<div class="control-group">
+			  <label class="control-label" for="textinput">C&oacute;digo</label>
+			  <div class="controls">
+				<input id="textinput" name="textinput" type="text" placeholder="@disciplina.getCodigo()" style='width:256px;'>
+				
+			  </div>
+			</div>
+
+			<!-- Text input-->
+			<div class="control-group">
+			  <label class="control-label" for="textinput">Nome</label>
+			  <div class="controls">
+				<input id="textinput" name="textinput" type="text" placeholder="@disciplina.getNome()" style='width:256px;'>
+				
+			  </div>
+			</div>
+
+			<!-- Text input-->
+			<div class="control-group">
+			  <label class="control-label" for="textinput">Cr&eacute;ditos</label>
+			  <div class="controls">
+				<input id="textinput" name="textinput" type="text" placeholder="@disciplina.getCreditos()" style='width:256px;'>
+				
+			  </div>
+			</div>
+
+			<!-- Text input-->
+			<div class="control-group">
+			  <label class="control-label" for="textinput">Professor</label>
+			  <div class="controls">
+				<input id="textinput" name="textinput" type="text" placeholder="@disciplina.getProfessor()" style='width:256px;'>
+				
+			  </div>
+			</div>
+
+			<!-- Text input-->
+			<div class="control-group">
+			  <label class="control-label" for="textinput">Abreviatura</label>
+			  <div class="controls">
+				<input id="textinput" name="textinput" type="text" placeholder="@disciplina.getAbreviatura()" style='width:256px;'>
+				
+			  </div>
+			</div>
+			<div class="control-group">
+			  <label class="control-label" for="textinput">Sala</label>
+			  <div class="controls">
+				<input id="textinput" name="textinput" type="text" placeholder="@disciplina.getSala()" style='width:256px;'>
+				
+			  </div>
+			</div>
+			
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Salvar</button>
+            </div>
+            <br>
+
+        </div>
+    <!-- /.modal-content -->
+    </div>
+<!-- /.modal-dialog -->
+  </div>
+<!-- /.modal -->
 }
+
+

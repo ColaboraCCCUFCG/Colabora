@@ -153,6 +153,22 @@ public class Disciplina {
 	
 	
 
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public int getCreditos() {
+		return creditos;
+	}
+
+	public void setCreditos(int creditos) {
+		this.creditos = creditos;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
