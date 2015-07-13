@@ -25,12 +25,6 @@ public class SistemaCoordenadorController extends Controller {
 		return ok(sistemaCoordenador.render(auxiliador));
     }
 	
-	@Transactional
-	private static List<Disciplina> retornaDisciplinasNesseDiaEHorario(DiaDaSemana sexta, int i) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	@Transactional	
 	public static Result listDisciplinas() {
         return ok(listDisciplinas.render(retornaDisciplinasCadastradas()));
@@ -40,7 +34,7 @@ public class SistemaCoordenadorController extends Controller {
 	@Transactional	
 	public static Result addDisciplinasAoHorario() {
 		AuxiliadorDeHorario auxiliador = new AuxiliadorDeHorario(retornaDisciplinasCadastradas());
-        return ok(addDisciplina.render(auxiliador.retornaDisciplinasQueNãoDevemSerExibidasNoHorário()));
+        return ok(addDisciplina.render(retornaDisciplinasCadastradas()));
     }
 	
 	@Transactional	

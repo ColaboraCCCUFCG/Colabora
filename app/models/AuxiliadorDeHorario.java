@@ -31,7 +31,7 @@ public class AuxiliadorDeHorario {
 		return retorno;
 	}
 	
-	public List<Disciplina> retornaDisciplinasQueDevemSerExibidasNoHorario(){
+	private List<Disciplina> retornaDisciplinasQueDevemSerExibidasNoHorario(){
 		List<Disciplina> retorno = new ArrayList<Disciplina>();
 		for(Disciplina disciplina:this.disciplinas){
 			if(disciplina.isEstaNoHorario()){

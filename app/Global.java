@@ -145,10 +145,12 @@ public class Global extends GlobalSettings {
 				DAO.persist(p1);
 				DAO.flush();
 				
+				
 				Disciplina calculo2 = new Disciplina("CALCULO DIFERENCIAL E INTEGRAL II", "Amauri", "CAA102", "calculo2", 4, "1109053");
-				calculo1.addNosHorariosDaDisciplina(Segunda8h);
-				calculo1.addNosHorariosDaDisciplina(Quarta10h);
-				calculo1.mostrarNoHorario();
+				calculo2.addNosHorariosDaDisciplina(Segunda8h);
+				calculo2.addNosHorariosDaDisciplina(Quarta10h);
+				// esta comentado para poder aparecer essa disciplina na tela de adicionar disciplinas
+				//calculo2.mostrarNoHorario();
 				DAO.persist(calculo2);
 				DAO.flush();
 				
