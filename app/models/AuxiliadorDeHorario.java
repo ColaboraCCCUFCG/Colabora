@@ -18,16 +18,20 @@ public class AuxiliadorDeHorario {
 		this.disciplinas = disciplinas;
 	}
 	
-	private List<Disciplina> retornaDisciplinasExibiveisPeloDiaEHorario(DiaDaSemana dia, int horario){
+	private List<Disciplina> retornaDisciplinasExibiveisPeloDiaEHorario(Horario horario){
 		List<Disciplina> retorno = new ArrayList<Disciplina>();
+		
 		for (Disciplina disciplina:retornaDisciplinasQueDevemSerExibidasNoHorario()){
-			for (Horario horarioDaDisciplina:disciplina.getHorariosDaDisciplina()){
-				if(horarioDaDisciplina.getDiaDaSemana().equals(dia) &&
-						horarioDaDisciplina.getHorarioDeInicioDaAula() == horario){
-					retorno.add(disciplina);
-				}
+			if (disciplina.contemEsseHorario(horario)){
+				retorno.add(disciplina);
 			}
-		}
+			
+					
+				
+				
+			}
+		
+		
 		return retorno;
 	}
 	
@@ -38,6 +42,7 @@ public class AuxiliadorDeHorario {
 				retorno.add(disciplina);
 			}
 		}
+		
 		return retorno;
 	}
 	
@@ -52,8 +57,8 @@ public class AuxiliadorDeHorario {
 	}
 	
 	public List<Disciplina> retornaDisciplinasExibiveis(int dia, int horario){
-			
-		return retornaDisciplinasExibiveisPeloDiaEHorario(defineDiaDaSemanaRecebendoInt(dia), horario);
+		Horario horarioPesquisado = new Horario(defineDiaDaSemanaRecebendoInt(dia), horario);	
+		return retornaDisciplinasExibiveisPeloDiaEHorario(horarioPesquisado);
 	}
 	
 	private DiaDaSemana defineDiaDaSemanaRecebendoInt(int dia){

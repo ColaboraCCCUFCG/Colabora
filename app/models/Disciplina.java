@@ -168,6 +168,15 @@ public class Disciplina {
 	public void setCreditos(int creditos) {
 		this.creditos = creditos;
 	}
+	
+	public boolean contemEsseHorario(Horario horario){
+		for (Horario meu:this.horariosDaDisciplina){
+			if (meu.equals(horario)){
+				return true;
+				}
+			}
+		return false;
+	}
 
 	@Override
 	public int hashCode() {

@@ -25,4 +25,6 @@ public enum DiaDaSemana {
 	public String toString() {
 		return descricao;
 	}
+	
+	
 }

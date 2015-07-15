@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 public class Horario {
 	@Id
-	@SequenceGenerator(name = "HORARIO_SEQUENCE", sequenceName = "HORARIO_SEQUENCE", allocationSize = 1, initialValue = 0)
+	
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	// Usar Id sempre Long
 	private Long id;
@@ -68,23 +68,11 @@ public class Horario {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
 		Horario other = (Horario) obj;
-		if (diaDaSemana != other.diaDaSemana)
-			return false;
-		if (horarioDeInicioDaAula != other.horarioDeInicioDaAula)
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
+		if (other.diaDaSemana.equals(this.diaDaSemana) && other.getHorarioDeInicioDaAula() == this.horarioDeInicioDaAula){
+			return true;
+		}
+		return false;
 	}
 	
 	
