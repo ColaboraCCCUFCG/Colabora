@@ -32,16 +32,15 @@ public class SistemaCoordenadorController extends Controller {
         return ok(listDisciplinas.render(retornaDisciplinasCadastradas()));
     }
 	
-	// vou mandar pra view apenas aquelas que não estão atualmente no horario
-	@Transactional	
-	public static Result addDisciplinasAoHorario() {
-		AuxiliadorDeHorario auxiliador = new AuxiliadorDeHorario(retornaDisciplinasCadastradas());
-        return ok(addDisciplina.render(retornaDisciplinasCadastradas()));
-    }
 	
 	@Transactional	
 	public static Result novaDisciplina() {
         return ok(newdisciplina.render("Your new application is ready."));
+    }
+	
+	@Transactional	
+	public static Result listaDeDisciplinas() {
+        return ok(listDisciplinas.render(retornaDisciplinasCadastradas()));
     }
 	
 	@Transactional
@@ -78,6 +77,16 @@ public class SistemaCoordenadorController extends Controller {
 		dao.flush();
 		flash("success", "Disciplina removida com sucesso!");
 		return sistemaCoordenador();
+	}
+	
+	@Transactional
+	public static Result adicionaDiscipliNoHorario(Long id){
+		Disciplina disciplina = retornaDisciplina(id);
+		disciplina.mostrarNoHorario();		
+		dao.merge(disciplina);
+		dao.flush();
+		flash("success", "Disciplina adicionada com sucesso!");
+		return ok(listDisciplinas.render(retornaDisciplinasCadastradas()));
 	}
 	
 	@Transactional

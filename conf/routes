@@ -4,7 +4,7 @@
 
 # Home page
 GET       	/                    		controllers.Application.login()
-POST      	/                    		controllers.Application.login()
+POST      	/		                 	controllers.Application.login()
 
 
 # Map static resources from the /public folder to the /assets URL path
@@ -16,12 +16,14 @@ GET     	/contato                    controllers.Application.contato()
 
 # Horário
 POST    	/horario               		controllers.SistemaCoordenadorController.sistemaCoordenador()
+GET    		/horario               		controllers.SistemaCoordenadorController.sistemaCoordenador()
 GET			/horarioAluno				controllers.Application.sistemaAluno()
 GET			/newdisciplina				controllers.Application.newdisciplina()
 
-#Disciplina
-GET			/adicionaDisciplina			controllers.SistemaCoordenadorController.addDisciplinasAoHorario()
-GET			/novaDisciplina				controllers.SistemaCoordenadorController.novaDisciplina()
+
+#Lista disciplinas
+GET			/listDisciplinas			controllers.SistemaCoordenadorController.listaDeDisciplinas()
+POST		/adicionaDisciplina			controllers.SistemaCoordenadorController.adicionaDiscipliNoHorario(id:Long)
 
 #Editar dados da disciplina e remover a disciplina do horario
 POST    	/disciplinas/update 		controllers.SistemaCoordenadorController.salvarAlteracao(id:Long)
