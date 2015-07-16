@@ -18,8 +18,10 @@ GET     	/contato                    controllers.Application.contato()
 POST    	/horario               		controllers.SistemaCoordenadorController.sistemaCoordenador()
 GET    		/horario               		controllers.SistemaCoordenadorController.sistemaCoordenador()
 GET			/horarioAluno				controllers.Application.sistemaAluno()
-GET			/newdisciplina				controllers.Application.newdisciplina()
 
+#Criar nova disciplina
+GET			/novaDisciplina				controllers.SistemaCoordenadorController.novaDisciplina()
+POST		/novaDisciplina				controllers.SistemaCoordenadorController.criaDisciplina()
 
 #Lista disciplinas
 GET			/listDisciplinas			controllers.SistemaCoordenadorController.listaDeDisciplinas()

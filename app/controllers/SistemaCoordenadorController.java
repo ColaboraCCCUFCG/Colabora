@@ -10,11 +10,12 @@ import play.db.jpa.Transactional;
 import play.data.Form;
 import static play.data.Form.form;
 
+
 public class SistemaCoordenadorController extends Controller {
 	
 	// INICIO DA DECLARACAO DE VARIAVEIS
 	private static GenericDAO dao = new GenericDAO();
-	
+	private static Form<Disciplina> form = Form.form(Disciplina.class);
 	// FIM DA DECLARACAO DE VARIAVEIS
 	
 	private static List<Disciplina> retornaDisciplinasCadastradas(){
@@ -99,5 +100,26 @@ public class SistemaCoordenadorController extends Controller {
 		}
 		return null;
 	}
+	
+	@Transactional	
+	public static Result criaDisciplina() {
+    	Form<Disciplina> formPreenchido = form.bindFromRequest();
+    	
+    	if (formPreenchido.hasErrors()) {
+    		 flash("error", "Aconteceu um erro no cadastro!");
+             return novaDisciplina();
+        } else {
+            Disciplina disciplina = formPreenchido.get();
+            
+            if (disciplina.getNome() != null){
+            	dao.persist(disciplina);
+                dao.flush();
+                flash("success", "Disciplina cadastrada com sucesso!");
+                return novaDisciplina();
+            } 
+        }
+    	 flash("error", "Erro no cadastro");
+         return novaDisciplina();
+    }
 }
 
