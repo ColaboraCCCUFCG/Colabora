@@ -34,3 +34,5 @@ POST    	/disciplinas/remove 		controllers.SistemaCoordenadorController.removeDi
 #Usuario
 GET     	/alterarSenha               controllers.Application.alterarSenha()
 POST     	/alterarSenha               controllers.Application.alterarSenha()
+POST     	/recuperaSenha              controllers.Application.recuperaSenha()
+GET     	/recuperaSenha              controllers.Application.recuperaSenha()

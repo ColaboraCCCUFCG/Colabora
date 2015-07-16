@@ -60,6 +60,9 @@ public class Application extends Controller {
 		return ok(alterarSenha.render("String"));
 	}
 
+	public static Result recuperaSenha(){
+		return ok(recuperaSenha.render("String"));
+	}
 }
 
 
