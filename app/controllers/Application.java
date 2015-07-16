@@ -36,8 +36,6 @@ public class Application extends Controller {
     		}
             return ok(login.render("Email ou senha incorretos!"));
         }
-    	
-    	//return ok(login.render("Your new application is ready."));
     }
 
     public static Result contato() {
@@ -50,7 +48,8 @@ public class Application extends Controller {
     }
 	
 	public static Result sistemaAluno(){
-		return ok(sistemaAluno.render(retornaDisciplinasCadastradas()));
+		AuxiliadorDeHorario auxiliador = new AuxiliadorDeHorario(retornaDisciplinasCadastradas());
+		return ok(sistemaAluno.render(auxiliador));
 	}
 	
 	private static List<Disciplina> retornaDisciplinasCadastradas(){
