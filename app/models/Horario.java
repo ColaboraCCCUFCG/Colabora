@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 public class Horario {
 	@Id
-	
+	@SequenceGenerator(name = "HORARIO_SEQUENCE", sequenceName = "HORARIO_SEQUENCE", allocationSize = 1, initialValue = 0)
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	// Usar Id sempre Long
 	private Long id;

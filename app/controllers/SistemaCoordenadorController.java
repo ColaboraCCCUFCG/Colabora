@@ -7,6 +7,8 @@ import play.*;
 import play.mvc.*;
 import views.html.*;
 import play.db.jpa.Transactional;
+import play.data.Form;
+import static play.data.Form.form;
 
 public class SistemaCoordenadorController extends Controller {
 	
@@ -41,6 +43,52 @@ public class SistemaCoordenadorController extends Controller {
 	public static Result novaDisciplina() {
         return ok(newdisciplina.render("Your new application is ready."));
     }
+	
+	@Transactional
+	public static Result salvarAlteracao(Long id){
+		String codigo = form().bindFromRequest().get("codigo");
+		String nome = form().bindFromRequest().get("nome");
+		String creditos = form().bindFromRequest().get("creditos");
+		int creditosInt = Integer.parseInt(creditos);
+		String sala = form().bindFromRequest().get("sala");
+		String professor = form().bindFromRequest().get("professor");
+		String abreviatura = form().bindFromRequest().get("abreviatura");
 
+		Disciplina disciplina = retornaDisciplina(id);
+		disciplina.setCodigo(codigo);
+		disciplina.setNome(nome);			
+		disciplina.setCreditos(creditosInt);
+		disciplina.setSala(sala);
+		disciplina.setProfessor(professor);
+		disciplina.setAbreviatura(abreviatura);
+		disciplina.mostrarNoHorario();
+		dao.merge(disciplina);
+
+		dao.flush();
+
+		flash("success", "Mudanca efetuada com sucesso.");
+		return sistemaCoordenador();
+	}
+	
+	@Transactional
+	public static Result removeDisciplinaDoHorario(Long id){
+		Disciplina disciplina = retornaDisciplina(id);
+		disciplina.naoMostrarNoHorario();
+		dao.merge(disciplina);
+		dao.flush();
+		flash("success", "Disciplina removida com sucesso!");
+		return sistemaCoordenador();
+	}
+	
+	@Transactional
+	public static Disciplina retornaDisciplina(Long id){
+		for (Disciplina disciplina: retornaDisciplinasCadastradas()){
+			if (disciplina.getId().equals(id)){
+				return disciplina;
+				
+			}
+		}
+		return null;
+	}
 }
 
