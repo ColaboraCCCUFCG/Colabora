@@ -1,4 +1,4 @@
-name := """Gigs Radar"""
+name := """Colabora"""
 
 version := "1.0-SNAPSHOT"
 
