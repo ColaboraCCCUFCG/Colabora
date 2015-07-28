@@ -24,10 +24,11 @@
 
   <body>
   
- <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
     
     <ul class="nav navbar-top-links navbar-right" style="margin:0px">
     
+     
     <!-- drop 1 -->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -36,38 +37,16 @@
             <ul class="dropdown-menu dropdown-tasks">
                 <li class="divider"></li>
                 <li>
-                    <a href='/horario '><strong>Mostrar horário</strong></a>
+                    <a href='#'><strong>Mostrar horário</strong></a>
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href='/novaDisciplina'><strong>Criar disciplina</strong></a>
+                    <a href="#"><strong>Acompanhar problemas</strong></a>
                 </li>
-                
+
             </ul>
         </li>
-        
-         <!-- drop 2 -->
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="glyphicon glyphicon-bell"></i>  <i class="glyphicon glyphicon-chevron-down"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-alerts">
-                <li>
-                    <a href="#">
-                        <i class="glyphicon glyphicon-comment"></i> Ver indicações de matrícula
-                        
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">
-                        <i class="glyphicon glyphicon-comment"></i> Ver problemas com horário
-                        
-                    </a>
-                </li>
-                
-            </ul>
-        </li>
+    
         <!-- drop 3 -->
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -78,7 +57,7 @@
                     <a href="#"><i class="glyphicon glyphicon-user"></i> Editar Perfil</a>
                 </li>
                 <li>
-                    <a href="#"><i class="glyphicon glyphicon-cog"></i> Configurações</a>
+                    <a href="/alterarSenha"><i class="glyphicon glyphicon-cog"></i> Alterar Senha</a>
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -108,7 +87,7 @@
 				<td>Disciplina</td>
 				<td>Professor</td>
 				<td>Horários</td>
-				<td>Adicionar na Segunda-8h</td>
+				<td>Indicar intenção de matrícula</td>
 			</tr>
 		   </thead>
 		   <tbody>
@@ -118,10 +97,10 @@
 					<td> @disciplina.getProfessor()</td>
 					<td> @disciplina.getHorariosDaDisciplinaToString()</td>
 					<td> <form
-							action="@routes.SistemaCoordenadorController.adicionaDiscipliNoHorario(disciplina.getId())"
+							action="@routes.SistemaAlunoController.indicarIntencaoDeMatricula(disciplina.getId())"
 							method="post">
 							
-							<button type="submit" class="btn btn-info"> Adicionar</button>
+							<button type="submit" class="btn btn-info"> Indicar</button>
 						</form>							
 						
 						

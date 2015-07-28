@@ -31,6 +31,10 @@ POST		/adicionaDisciplina			controllers.SistemaCoordenadorController.adicionaDis
 POST    	/disciplinas/update 		controllers.SistemaCoordenadorController.salvarAlteracao(id:Long)
 POST    	/disciplinas/remove 		controllers.SistemaCoordenadorController.removeDisciplinaDoHorario(id:Long)
 
+#Usuario indicar intenção de matricula
+POST    	/indicarmatricula 			controllers.SistemaAlunoController.indicarIntencaoDeMatricula(id:Long)
+GET			/indicarmatricula			controllers.SistemaAlunoController.irParaTelaDeIntencaoDeMatricula()
+
 #Usuario
 GET     	/alterarSenha               controllers.Application.alterarSenha()
 POST     	/alterarSenha               controllers.Application.alterarSenha()

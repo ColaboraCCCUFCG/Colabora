@@ -7,17 +7,14 @@ import javax.persistence.*;
 
 
 @Entity
-public class Problema{
+public class IntencaoDeMatricula{
 	// Gerador de Sequencia para o Id
 	// Todo Id tem que ter o GeneratedValue a não ser que ele seja setado
 	@Id
-	@SequenceGenerator(name = "PROBLEMA_SEQUENCE", sequenceName = "PROBLEMA_SEQUENCE", allocationSize = 1, initialValue = 0)
+	@SequenceGenerator(name = "MATRICULA_SEQUENCE", sequenceName = "MATRICULA_SEQUENCE", allocationSize = 1, initialValue = 0)
 	@GeneratedValue(strategy = GenerationType.TABLE)
 
 	private Long id;
-	
-	@Column
-	private String problema;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn
@@ -29,24 +26,16 @@ public class Problema{
 	
 	
 	// Construtor vazio para o Hibernate criar os objetos
-	public Problema (){
+	public IntencaoDeMatricula (){
 		
 	}
 	
-	public Problema (String problema){
-		this.problema = problema;
+	public IntencaoDeMatricula (String problema){		
 		this.disciplinas = new ArrayList<Disciplina>();
 		this.usuarios = new ArrayList<Usuario>();
 	}
 
-	public String getProblema() {
-		return problema;
-	}
-
-	public void setProblema(String problema) {
-		this.problema = problema;
-	}
-
+	
 	public void addDisciplina(Disciplina disciplina) {
 		this.disciplinas.add(disciplina);
 	}
@@ -55,11 +44,7 @@ public class Problema{
 		this.disciplinas.remove(disciplina);
 	}
 
-	/*@Override
-	public int hashCode() {
-		
-	}*/
-
+	
 	
 
 }
