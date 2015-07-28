@@ -1,5 +1,8 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -16,8 +19,9 @@ public class Problema{
 	@Column
 	private String problema;
 	
-	@Column
-	private Disciplina disciplina;
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn
+	private List<Disciplina> disciplinas;
 	
 	
 	// Construtor vazio para o Hibernate criar os objetos
@@ -25,9 +29,9 @@ public class Problema{
 		
 	}
 	
-	public Problema (String problema, Disciplina disciplina){
+	public Problema (String problema){
 		this.problema = problema;
-		this.disciplina = disciplina;
+		this.disciplinas = new ArrayList<Disciplina>();
 	}
 
 	public String getProblema() {
@@ -38,12 +42,12 @@ public class Problema{
 		this.problema = problema;
 	}
 
-	public Disciplina getDisciplina() {
-		return disciplina;
+	public void addDisciplina(Disciplina disciplina) {
+		this.disciplinas.add(disciplina);
 	}
 
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
+	public void removeDisciplina(Disciplina disciplina) {
+		this.disciplinas.remove(disciplina);
 	}
 
 	/*@Override
@@ -51,27 +55,6 @@ public class Problema{
 		
 	}*/
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Problema other = (Problema) obj;
-		if (problema == null) {
-			if (other.problema != null)
-				return false;
-		} else if (!problema.equals(other.problema))
-			return false;
-		if (disciplina == null) {
-			if (other.disciplina != null)
-				return false;
-		} else if (!disciplina.equals(other.disciplina))
-			return false;
-		
-		return true;
-	}	
+	
 
 }

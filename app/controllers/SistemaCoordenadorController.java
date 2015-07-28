@@ -83,7 +83,10 @@ public class SistemaCoordenadorController extends Controller {
 	@Transactional
 	public static Result adicionaDiscipliNoHorario(Long id){
 		Disciplina disciplina = retornaDisciplina(id);
-		disciplina.mostrarNoHorario();		
+		disciplina.mostrarNoHorario();
+		
+		disciplina.addNosHorariosDaDisciplina(new Horario(DiaDaSemana.SEGUNDA, 8));
+		
 		dao.merge(disciplina);
 		dao.flush();
 		flash("success", "Disciplina adicionada com sucesso!");
