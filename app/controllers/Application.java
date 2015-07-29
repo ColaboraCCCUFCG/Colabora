@@ -28,7 +28,7 @@ public class Application extends Controller {
             for (Usuario usuario : todosUsuarios) {
     			if (usuario.getEmail().equals(loginRecebido.getEmail()) && usuario.getSenha().equals(loginRecebido.getSenha())){
     				if (usuario.getIsAluno()){
-    					return sistemaAluno() ;
+    					return sistemaAluno(usuario.getEmail()) ;
     				} else {
     					return SistemaCoordenadorController.sistemaCoordenador();
     				}
@@ -47,9 +47,9 @@ public class Application extends Controller {
         return ok(newdisciplina.render("Your new application is ready."));
     }
 	
-	public static Result sistemaAluno(){
+	public static Result sistemaAluno(String email){
 		AuxiliadorDeHorario auxiliador = new AuxiliadorDeHorario(retornaDisciplinasCadastradas());
-		return ok(sistemaAluno.render(auxiliador));
+		return ok(sistemaAluno.render(auxiliador, email));
 	}
 	
 	private static List<Disciplina> retornaDisciplinasCadastradas(){
