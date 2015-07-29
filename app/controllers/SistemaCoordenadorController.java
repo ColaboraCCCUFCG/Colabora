@@ -22,6 +22,10 @@ public class SistemaCoordenadorController extends Controller {
 		return dao.findAllByClass(Disciplina.class);
 	}
 	
+	private static List<Problema> retornaIndicacoesDeProblemas(){
+		return dao.findAllByClass(Problema.class);
+	}
+	
 	@Transactional
 	public static Result sistemaCoordenador() {
 		AuxiliadorDeHorario auxiliador = new AuxiliadorDeHorario(retornaDisciplinasCadastradas());
@@ -33,6 +37,10 @@ public class SistemaCoordenadorController extends Controller {
         return ok(listDisciplinas.render(retornaDisciplinasCadastradas()));
     }
 	
+	@Transactional
+	public static Result listaDeProblemas(){
+		return ok(listProblemas.render(retornaIndicacoesDeProblemas()));
+	}
 	
 	@Transactional	
 	public static Result novaDisciplina() {
@@ -98,7 +106,6 @@ public class SistemaCoordenadorController extends Controller {
 		for (Disciplina disciplina: retornaDisciplinasCadastradas()){
 			if (disciplina.getId().equals(id)){
 				return disciplina;
-				
 			}
 		}
 		return null;

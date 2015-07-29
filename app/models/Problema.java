@@ -50,16 +50,24 @@ public class Problema{
 	public void addDisciplina(Disciplina disciplina) {
 		this.disciplinas.add(disciplina);
 	}
-
+	
 	public void removeDisciplina(Disciplina disciplina) {
 		this.disciplinas.remove(disciplina);
 	}
 
-	/*@Override
-	public int hashCode() {
-		
-	}*/
-
+	public void addUsuario(Usuario usuario){
+		this.usuarios.add(usuario);
+	}
+	
+	public String getNomeDisciplina(){
+		String nomeDisc = "";
+		for (Disciplina d: disciplinas){
+			nomeDisc = nomeDisc + d.getNome();
+		}
+		return nomeDisc;
+	}
+	
+	
 	
 
 }

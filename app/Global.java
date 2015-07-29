@@ -37,57 +37,12 @@ public class Global extends GlobalSettings {
 				DAO.persist(u7);
 				DAO.flush();
 
-				//HORARIOS
-				/*Segunda*/
-				/*Horario Segunda7h = new Horario(DiaDaSemana.SEGUNDA, 7);
-				Horario Segunda8h = new Horario(DiaDaSemana.SEGUNDA, 8);
-				Horario Segunda10h = new Horario(DiaDaSemana.SEGUNDA, 10);
-				Horario Segunda12h = new Horario(DiaDaSemana.SEGUNDA, 12);
-				Horario Segunda14h = new Horario(DiaDaSemana.SEGUNDA, 14);
-				Horario Segunda16h = new Horario(DiaDaSemana.SEGUNDA, 16);
-				Horario Segunda18h = new Horario(DiaDaSemana.SEGUNDA, 18);
-				Horario Segunda20h = new Horario(DiaDaSemana.SEGUNDA, 20);
-				Terça
-				Horario Terca7h = new Horario(DiaDaSemana.TERCA, 7);
-				Horario Terca8h = new Horario(DiaDaSemana.TERCA, 8);
-				Horario Terca10h = new Horario(DiaDaSemana.TERCA, 10);
-				Horario Terca12h = new Horario(DiaDaSemana.TERCA, 12);
-				Horario Terca14h = new Horario(DiaDaSemana.TERCA, 14);
-				Horario Terca16h = new Horario(DiaDaSemana.TERCA, 16);
-				Horario Terca18h = new Horario(DiaDaSemana.TERCA, 18);
-				Horario Terca20h = new Horario(DiaDaSemana.TERCA, 20);
-				Quarta
-				Horario Quarta7h = new Horario(DiaDaSemana.QUARTA, 7);
-				Horario Quarta8h = new Horario(DiaDaSemana.QUARTA, 8);
-				Horario Quarta10h = new Horario(DiaDaSemana.QUARTA, 10);
-				Horario Quarta12h = new Horario(DiaDaSemana.QUARTA, 12);
-				Horario Quarta14h = new Horario(DiaDaSemana.QUARTA, 14);
-				Horario Quarta16h = new Horario(DiaDaSemana.QUARTA, 16);
-				Horario Quarta18h = new Horario(DiaDaSemana.QUARTA, 18);
-				Horario Quarta20h = new Horario(DiaDaSemana.QUARTA, 20);
-				Quinta
-				Horario Quinta7h = new Horario(DiaDaSemana.QUINTA, 7);
-				Horario Quinta8h = new Horario(DiaDaSemana.QUINTA, 8);
-				Horario Quinta10h = new Horario(DiaDaSemana.QUINTA, 10);
-				Horario Quinta12h = new Horario(DiaDaSemana.QUINTA, 12);
-				Horario Quinta14h = new Horario(DiaDaSemana.QUINTA, 14);
-				Horario Quinta16h = new Horario(DiaDaSemana.QUINTA, 16);
-				Horario Quinta18h = new Horario(DiaDaSemana.QUINTA, 18);
-				Horario Quinta20h = new Horario(DiaDaSemana.QUINTA, 20);
-				Sexta
-				Horario Sexta7h = new Horario(DiaDaSemana.SEXTA, 7);
-				Horario Sexta8h = new Horario(DiaDaSemana.SEXTA, 8);
-				Horario Sexta10h = new Horario(DiaDaSemana.SEXTA, 10);
-				Horario Sexta12h = new Horario(DiaDaSemana.SEXTA, 12);
-				Horario Sexta14h = new Horario(DiaDaSemana.SEXTA, 14);
-				Horario Sexta16h = new Horario(DiaDaSemana.SEXTA, 16);
-				Horario Sexta18h = new Horario(DiaDaSemana.SEXTA, 18);
-				Horario Sexta20h = new Horario(DiaDaSemana.SEXTA, 20);
+			
 
 				// Eh aqui que vamos adicionar as disciplinas, todas elas!
 
 				// comecando pelas disciplinas da TERCA de 8h
-				 */				
+							
 				Disciplina linear = new Disciplina("ALGEBRA LINEAR I", "Jose Luiz", "CAA102", "linear", 4, "1109049");
 				linear.addNosHorariosDaDisciplina(new Horario(DiaDaSemana.TERCA, 14));
 				linear.addNosHorariosDaDisciplina(new Horario(DiaDaSemana.QUINTA, 16));

@@ -25,10 +25,6 @@ public class AuxiliadorDeHorario {
 			if (disciplina.contemEsseHorario(horario)){
 				retorno.add(disciplina);
 			}
-			
-					
-				
-				
 			}
 		
 		
