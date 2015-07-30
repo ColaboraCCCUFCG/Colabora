@@ -51,7 +51,37 @@ public class IntencaoDeMatricula{
 	public void setEmailDoUsuario(String emailDoUsuario) {
 		this.emailDoUsuario = emailDoUsuario;
 	}
+	
+	public void addDisciplina(Disciplina disciplina){
+		this.disciplinas.add(disciplina);
+	}
+	
+	public void removeDisciplina(Disciplina disciplina){
+		this.disciplinas.remove(disciplina);
+	}
 
+
+	public List<Disciplina> getDisciplinas() {
+		return disciplinas;
+	}
+
+	public void setDisciplinas(List<Disciplina> disciplinas) {
+		this.disciplinas = disciplinas;
+	}
+	
+	public String getDisciplinasToString() {
+		
+		String horarios = "";
+		for (Disciplina h: this.disciplinas)	{
+			horarios += " " + h.getNome();
+			
+		}
+		return horarios;
+		
+		
+	}
+
+	
 	
 	
 	

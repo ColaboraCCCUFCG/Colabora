@@ -38,9 +38,13 @@ POST		/horarioAluno				controllers.SistemaAlunoController.indicarProblema(id:Lon
 #Lista problemas
 GET			/listProblemas				controllers.SistemaCoordenadorController.listaDeProblemas()
 
+#Lista indicacoes
+GET			/listIndicacoes				controllers.SistemaCoordenadorController.listaDeIndicacoes()
+
 #Usuario indicar intenção de matricula
-POST    	/indicarmatricula 			controllers.SistemaAlunoController.indicarIntencaoDeMatricula(id:Long)
+POST    	/indicarmatricula 			controllers.SistemaAlunoController.indicarIntencaoDeMatricula(id:Long, email:String)
 GET			/indicarmatricula			controllers.SistemaAlunoController.irParaTelaDeIntencaoDeMatricula(email:String)
+POST    	/removerindicacao 			controllers.SistemaAlunoController.removerIntencaoDeMatricula(id:Long, email:String)
 
 #Usuario
 GET     	/alterarSenha               controllers.Application.alterarSenha()

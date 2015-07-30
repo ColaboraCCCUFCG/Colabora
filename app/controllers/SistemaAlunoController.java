@@ -23,6 +23,14 @@ public class SistemaAlunoController extends Controller {
 		return dao.findAllByClass(Disciplina.class);
 	}	
 	
+	private static List<Usuario> retornaUsuariosCadastradas(){
+		return dao.findAllByClass(Usuario.class);
+	}
+	
+	private static List<IntencaoDeMatricula> retornaIndicacoesCadastradas(){
+		return dao.findAllByClass(IntencaoDeMatricula.class);
+	}
+	
 	private static Usuario retornaUsuario(String email){
 		List<Usuario> todosUsuarios = dao.findAllByClass(Usuario.class);
 		for (Usuario u : todosUsuarios){
@@ -34,15 +42,64 @@ public class SistemaAlunoController extends Controller {
 	}
 	
 	@Transactional
-	public static Result indicarIntencaoDeMatricula(Long id){
-		
-		return ok(listDisciplinasAluno.render(retornaDisciplinasCadastradas()));
+	public static Result indicarIntencaoDeMatricula(Long id, String email){
+		List<IntencaoDeMatricula> intencoes = retornaIndicacoesCadastradas();
+		for (IntencaoDeMatricula intencao: intencoes){
+			if (intencao.getEmailDoUsuario().equals(email)){
+				intencao.addDisciplina(SistemaCoordenadorController.retornaDisciplina(id));
+				dao.merge(intencao);
+				dao.flush();
+				List<Disciplina> disciplinasCadastradas2 = retornaDisciplinasCadastradas();
+				disciplinasCadastradas2.removeAll(intencao.getDisciplinas());
+				return ok(listDisciplinasAluno.render(disciplinasCadastradas2, intencao.getDisciplinas(), email));
+				
+			}
+		}
+		IntencaoDeMatricula intencao2 = new IntencaoDeMatricula(email);
+		intencao2.addDisciplina(SistemaCoordenadorController.retornaDisciplina(id));
+		dao.persist(intencao2);
+		dao.flush();
+		List<Disciplina> disciplinasCadastradas = retornaDisciplinasCadastradas();
+		disciplinasCadastradas.removeAll(intencao2.getDisciplinas());
+		return ok(listDisciplinasAluno.render(disciplinasCadastradas, intencao2.getDisciplinas(), email));
+	}
+	
+	@Transactional
+	public static Result removerIntencaoDeMatricula(Long id, String email){
+		List<IntencaoDeMatricula> intencoes = retornaIndicacoesCadastradas();
+		for (IntencaoDeMatricula intencao: intencoes){
+			if (intencao.getEmailDoUsuario().equals(email)){
+				intencao.removeDisciplina(SistemaCoordenadorController.retornaDisciplina(id));
+				dao.merge(intencao);
+				dao.flush();
+				List<Disciplina> disciplinasCadastradas2 = retornaDisciplinasCadastradas();
+				disciplinasCadastradas2.removeAll(intencao.getDisciplinas());
+				return ok(listDisciplinasAluno.render(disciplinasCadastradas2, intencao.getDisciplinas(), email));
+				
+			}
+		}
+		IntencaoDeMatricula intencao2 = new IntencaoDeMatricula(email);
+		intencao2.addDisciplina(SistemaCoordenadorController.retornaDisciplina(id));
+		dao.persist(intencao2);
+		dao.flush();
+		List<Disciplina> disciplinasCadastradas = retornaDisciplinasCadastradas();
+		disciplinasCadastradas.removeAll(intencao2.getDisciplinas());
+		return ok(listDisciplinasAluno.render(disciplinasCadastradas, intencao2.getDisciplinas(), email));
 	}
 	
 	@Transactional
 	public static Result irParaTelaDeIntencaoDeMatricula(String email){
-		
-		return ok(listDisciplinasAluno.render(retornaDisciplinasCadastradas()));
+		List<IntencaoDeMatricula> intencoes = retornaIndicacoesCadastradas();
+		IntencaoDeMatricula intencao2 = new IntencaoDeMatricula(email);
+		for (IntencaoDeMatricula intencao: intencoes){
+			if (intencao.getEmailDoUsuario().equals(email)){
+				intencao2 = intencao;
+				
+			}
+		}
+		List<Disciplina> disciplinasCadastradas = retornaDisciplinasCadastradas();
+		disciplinasCadastradas.removeAll(intencao2.getDisciplinas());
+		return ok(listDisciplinasAluno.render(disciplinasCadastradas, intencao2.getDisciplinas(), email));
 	}
 	
 	@Transactional
