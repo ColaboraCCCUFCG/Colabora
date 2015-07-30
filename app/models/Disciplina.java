@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.WordUtils;
 import java.util.Random;
 
 @Entity
@@ -57,8 +59,8 @@ public class Disciplina {
 	}
 	
 	public Disciplina(String nome, String professor, String sala, String abreviatura, int creditos, String codigo){
-		this.nome  = nome.toUpperCase();
-		this.professor = professor.toLowerCase();
+		this.nome  = WordUtils.capitalize(nome.toLowerCase());
+		this.professor = StringUtils.capitalize(professor);
 		this.sala = sala.toUpperCase();
 		this.abreviatura = abreviatura.toUpperCase();
 		this.creditos = creditos;

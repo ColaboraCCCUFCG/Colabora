@@ -94,7 +94,7 @@ public class Global extends GlobalSettings {
 				DAO.persist(tct1);
 				DAO.flush();
 
-				Disciplina si2 = new Disciplina("Sistemas da Informação II", "Franklin", "CD105", "si2", 4, "1411195");
+				Disciplina si2 = new Disciplina("Sistemas de Informação II", "Franklin", "CD105", "si2", 4, "1411195");
 				si2.addNosHorariosDaDisciplina(new Horario(DiaDaSemana.SEGUNDA, 8));
 				si2.addNosHorariosDaDisciplina(new Horario(DiaDaSemana.QUARTA, 10));
 				si2.mostrarNoHorario();
