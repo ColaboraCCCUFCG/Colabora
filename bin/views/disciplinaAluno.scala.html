@@ -1,4 +1,4 @@
-@(disciplinas: List[Disciplina], dia:String)
+@(disciplinas: List[Disciplina], dia:String, emailDoUsuario:String)
 				
 @for(disciplina <- disciplinas) {
 	<div class="panel panel-primary" style="margin-bottom:4px">
@@ -41,28 +41,14 @@
 					@disciplina.getNome()</h4>
 			</div>
 			<div class="modal-body">
-				<form class="form-horizontal" role="form" method="post"	>
+				<form class="form-horizontal" action="@routes.SistemaAlunoController.indicarProblema(disciplina.getId(), emailDoUsuario)" method="post">
 				
-					<div class="control-group">
-						<label class="control-label" for="checkboxes-0"></label>
-							 <input type="checkbox" name="checkboxes" id="checkboxes-0" value="Choque de horário">
-								Choque de horário
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="checkboxes-1"></label>
-							<input type="checkbox" name="checkboxes" id="checkboxes-1" value="Choque de horário">
-							Não possuo esse horário livre
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="checkboxes-2"></label>
-							 <input type="checkbox" name="checkboxes" id="checkboxes-2" value="Choque de horário">
-						   Gostaria de pagá-la em paralelo com uma pré-requisito
-					</div>
+					
 					<br>
 					<!-- Text input-->
 					<div class="control-group">
-					  <label class="control-label">Outro problema</label>
-						<input id="outroProblema" name="outroProblema" type="text" placeholder="Digite o problema" class="input-large">
+					  <label class="control-label">Problema: </label>
+						<input name="problema" type="text" placeholder="Digite o problema" class="input-xxlarge">
 					</div>					
 				<br>
 					<div class="control-group">

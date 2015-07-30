@@ -36,7 +36,10 @@
             <ul class="dropdown-menu dropdown-tasks">
                 <li class="divider"></li>
                 <li>
-                    <a href='/indicarmatricula'><strong>Indicar intenção de matrícula</strong></a>
+                    
+                    <a href="@routes.SistemaAlunoController.irParaTelaDeIntencaoDeMatricula(emailDoUsuario)">
+					  <strong>Indicar intenção de matrícula </strong></a>
+				
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -75,7 +78,15 @@
 		<strong>Ok!</strong> @flash.get("success")
 	</div>
 	}
-
+	@if(flash.contains("error")) {
+	<div class="alert alert-warning alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<strong>Ops!</strong> @flash.get("error")
+	</div>
+	}
 
 	<!-- tabela disciplinas -->
   <div class="panel-heading" id="redips-drag">
@@ -99,27 +110,27 @@
             
             <!-- segunda -->
             <td id='seg-7'>
-				@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,7), "seg-7")	
+				@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,7), "seg-7", emailDoUsuario)	
             </td>
 
             <!-- terça -->
             <td id='ter-7'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,7), "ter-7")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,7), "ter-7", emailDoUsuario)
             </td>
 
             <!-- quarta -->
             <td id='qua-7'>
-				@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,7), "qua-7'")
+				@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,7), "qua-7", emailDoUsuario)
             </td>
 
             <!-- quinta -->
             <td id='qui-7'>
-           		@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,7), "qui-7")
+           		@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,7), "qui-7", emailDoUsuario)
             </td>
 
             <!-- sexta -->
             <td id='sex-7'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,7), "sex-7")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,7), "sex-7", emailDoUsuario)
             </td>                                
           </tr>
 
@@ -129,27 +140,27 @@
             
             <!-- segunda -->
             <td id='seg-8'>
-             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,8), "seg-8")
+             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,8), "seg-8", emailDoUsuario)
             </td>
 
             <!-- terça -->
             <td id='ter-8'>
-           		@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,8), "ter-8")
+           		@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,8), "ter-8", emailDoUsuario)
             </td>
 
             <!-- quarta -->
             <td id='qua-8'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,8), "qua-8")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,8), "qua-8", emailDoUsuario)
             </td>
 
             <!-- quinta -->
             <td id='qui-8'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,8), "qui-8")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,8), "qui-8", emailDoUsuario)
             </td>
 
             <!-- sexta -->
             <td id='sex-8'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,8), "sex-8")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,8), "sex-8", emailDoUsuario)
             </td>                                
           </tr>
 
@@ -159,27 +170,27 @@
             
             <!-- segunda -->
             <td id='seg-10'>
-           		@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,10), "seg-10")
+           		@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,10), "seg-10", emailDoUsuario)
             </td>
 
             <!-- terça -->
             <td id='ter-10'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,10), "ter-10")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,10), "ter-10", emailDoUsuario)
             </td>
 
             <!-- quarta -->
             <td id='qua-10'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,10), "qua-10")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,10), "qua-10", emailDoUsuario)
             </td>
 
             <!-- quinta -->
             <td id='qui-10'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,10), "qui-10")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,10), "qui-10", emailDoUsuario)
             </td>
 
             <!-- sexta -->
             <td id='sex-10'>
-             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,10), "sex-10")
+             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,10), "sex-10", emailDoUsuario)
             </td>                                
           </tr>
 							
@@ -189,27 +200,27 @@
             
             <!-- segunda -->
             <td id='seg-12'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,12), "seg-12")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,12), "seg-12", emailDoUsuario)
             </td>
 
             <!-- terça -->
             <td id='ter-12'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,12), "ter-12")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,12), "ter-12", emailDoUsuario)
             </td>
 
             <!-- quarta -->
             <td id='qua-12'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,12), "qua-12")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,12), "qua-12", emailDoUsuario)
             </td>
 
             <!-- quinta -->
             <td id='qui-12'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,12), "qui-12")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,12), "qui-12", emailDoUsuario)
             </td>
 
             <!-- sexta -->
             <td id='sex-12'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,12), "sex-12")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,12), "sex-12", emailDoUsuario)
             </td>                                
           </tr>
 
@@ -219,27 +230,27 @@
             
             <!-- segunda -->
             <td id='seg-14'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,14), "seg-14")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,14), "seg-14", emailDoUsuario)
             </td>
 
             <!-- terça -->
             <td id='ter-14'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,14), "ter-14")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,14), "ter-14", emailDoUsuario)
             </td>
 
             <!-- quarta -->
             <td id='qua-14'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,14), "qua-14")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,14), "qua-14", emailDoUsuario)
             </td>
 
             <!-- quinta -->
             <td id='qui-14'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,14), "qui-14")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,14), "qui-14", emailDoUsuario)
             </td>
 
             <!-- sexta -->
             <td id='sex-14'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,14),"sex-14")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,14),"sex-14", emailDoUsuario)
             </td>                                
           </tr>
 
@@ -249,27 +260,27 @@
             
             <!-- segunda -->
             <td id='seg-16'>
-             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,16), "seg-16")
+             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,16), "seg-16", emailDoUsuario)
             </td>
 
             <!-- terça -->
             <td id='ter-16'>
-             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,16), "ter-16")
+             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,16), "ter-16", emailDoUsuario)
             </td>
 
             <!-- quarta -->
             <td id='qua-16'>
-             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,16), "qua-16")
+             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,16), "qua-16", emailDoUsuario)
             </td>
 
             <!-- quinta -->
             <td id='qui-16'>
-             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,16), "qui-16")
+             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,16), "qui-16", emailDoUsuario)
             </td>
 
             <!-- sexta -->
             <td id='sex-16'>
-             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,16), "sex-16")
+             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,16), "sex-16", emailDoUsuario)
             </td>                                
           </tr>
 
@@ -279,27 +290,27 @@
             
             <!-- segunda -->
             <td id='seg-18'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,18), "seg-18")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,18), "seg-18", emailDoUsuario)
             </td>
 
             <!-- terça -->
             <td id='ter-18'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,18), "ter-18")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,18), "ter-18", emailDoUsuario)
             </td>
 
             <!-- quarta -->
             <td id='qua-18'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,18),"qua-18")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,18),"qua-18", emailDoUsuario)
             </td>
 
             <!-- quinta -->
             <td id='qui-18'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,18), "qui-18")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,18), "qui-18", emailDoUsuario)
             </td>
 
             <!-- sexta -->
             <td id='sex-18'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,18), "sex-18")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,18), "sex-18", emailDoUsuario)
             </td>                                
           </tr>
 
@@ -310,27 +321,27 @@
             
             <!-- segunda -->
             <td id='seg-20'>
-            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,20), "seg-20")
+            	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(2,20), "seg-20", emailDoUsuario)
             </td>
 
             <!-- terça -->
             <td id='ter-20'>
-             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,20), "ter-20")
+             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(3,20), "ter-20", emailDoUsuario)
             </td>
 
             <!-- quarta -->
             <td id='qua-20'>
-             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,20), "qua-20")
+             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(4,20), "qua-20", emailDoUsuario)
             </td>
 
             <!-- quinta -->
             <td id='qui-20'>
-             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,20),"qui-20")
+             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(5,20),"qui-20", emailDoUsuario)
             </td>
 
             <!-- sexta -->
             <td id='sex-20'>
-             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,20), "sex-20")
+             	@disciplinaAluno(auxiliadorDeHorario.retornaDisciplinasExibiveis(6,20), "sex-20", emailDoUsuario)
             </td>                                
           </tr>
         </tr>                        

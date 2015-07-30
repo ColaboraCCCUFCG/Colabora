@@ -49,7 +49,7 @@
 					<div class="control-group">
 						<label class="control-label" for="textinput">C&oacute;digo</label>
 						<div class="controls">
-							<input id="codigo" class="form-control" name="codigo" type="text"
+							<input id="codigo" class="form-control" name="codigo" type="text" maxlength="10"
 								value="@disciplina.getCodigo()" style='width: 400px;'>
 
 
@@ -60,7 +60,7 @@
 					<div class="control-group">
 						<label class="control-label" for="textinput">Nome</label>
 						<div class="controls">
-							<input id="textinput" class="form-control" name="nome"
+							<input id="textinput" class="form-control" name="nome" maxlength="125"
 								type="text" value="@disciplina.getNome()" style='width: 400px;'>
 
 						</div>
@@ -71,7 +71,7 @@
 					<div class="control-group">
 						<label class="control-label" for="textinput">Cr&eacute;ditos</label>
 						<div class="controls">
-							<input id="textinput" class="form-control" name="creditos"
+							<input id="textinput" class="form-control" name="creditos" maxlength="2" maxlength="10"
 								type="text" value="@disciplina.getCreditos()"
 								style='width: 400px;'>
 
@@ -82,7 +82,7 @@
 					<div class="control-group">
 						<label class="control-label" for="textinput">Professor</label>
 						<div class="controls">
-							<input id="textinput" class="form-control" name="professor"
+							<input id="textinput" class="form-control" name="professor" maxlength="25"
 								type="text" value="@disciplina.getProfessor()"
 								style='width: 400px;'>
 
@@ -93,7 +93,7 @@
 					<div class="control-group">
 						<label class="control-label" for="textinput">Abreviatura</label>
 						<div class="controls">
-							<input id="textinput" class="form-control" name="abreviatura"
+							<input id="textinput" class="form-control" name="abreviatura" maxlength="12"
 								type="text" value="@disciplina.getAbreviatura()"
 								style='width: 400px;'>
 
@@ -102,7 +102,7 @@
 					<div class="control-group">
 						<label class="control-label" for="textinput">Sala</label>
 						<div class="controls">
-							<input id="textinput" class="form-control" name="sala"
+							<input id="textinput" class="form-control" name="sala" maxlength="20"
 								type="text" value="@disciplina.getSala()" style='width: 400px;'>
 
 						</div>

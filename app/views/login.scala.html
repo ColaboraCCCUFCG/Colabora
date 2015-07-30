@@ -27,6 +27,7 @@
   </head>
 
   <body>
+  
 	  
 	<!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top">
@@ -34,6 +35,25 @@
           <center><img class="centralizar" src='@routes.Assets.versioned("images/logo.jpg")'/></center>
       </div>
     </div>
+    
+    @if(flash.contains("success")) {
+	<div class="alert alert-info alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<strong>Ok!</strong> @flash.get("success")
+	</div>
+	}
+	@if(flash.contains("error")) {
+	<div class="alert alert-warning alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<strong>Ops!</strong> @flash.get("error")
+	</div>
+	}
 
 	<!-- Login -->
     <div class="container">
@@ -61,6 +81,12 @@
       </form>
 
     </div>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+  <!-- scripts -->
   </body>
 	<div id="f">
 	© Copyright 2015 All rights reserved.

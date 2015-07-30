@@ -20,9 +20,8 @@ public class IntencaoDeMatricula{
 	@JoinColumn
 	private List<Disciplina> disciplinas;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn
-	private List<Usuario> usuarios;
+	private String emailDoUsuario;
 	
 	
 	// Construtor vazio para o Hibernate criar os objetos
@@ -30,20 +29,31 @@ public class IntencaoDeMatricula{
 		
 	}
 	
-	public IntencaoDeMatricula (String problema){		
+	public IntencaoDeMatricula (String emailDoUsuario){		
 		this.disciplinas = new ArrayList<Disciplina>();
-		this.usuarios = new ArrayList<Usuario>();
+		this.emailDoUsuario = emailDoUsuario;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	
-	public void addDisciplina(Disciplina disciplina) {
-		this.disciplinas.add(disciplina);
+
+	public String getEmailDoUsuario() {
+		return emailDoUsuario;
 	}
 
-	public void removeDisciplina(Disciplina disciplina) {
-		this.disciplinas.remove(disciplina);
+	public void setEmailDoUsuario(String emailDoUsuario) {
+		this.emailDoUsuario = emailDoUsuario;
 	}
 
+	
+	
 	
 	
 

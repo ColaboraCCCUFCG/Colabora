@@ -57,10 +57,10 @@ public class Disciplina {
 	}
 	
 	public Disciplina(String nome, String professor, String sala, String abreviatura, int creditos, String codigo){
-		this.nome  = nome;
-		this.professor = professor;
-		this.sala = sala;
-		this.abreviatura = abreviatura;
+		this.nome  = nome.toUpperCase();
+		this.professor = professor.toLowerCase();
+		this.sala = sala.toUpperCase();
+		this.abreviatura = abreviatura.toUpperCase();
 		this.creditos = creditos;
 		this.codigo = codigo;
 		this.estaNoHorario = false;

@@ -97,28 +97,37 @@
 		<strong>Ok!</strong> @flash.get("success")
 	</div>
 	}
+	@if(flash.contains("error")) {
+	<div class="alert alert-warning alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<strong>Ops!</strong> @flash.get("error")
+	</div>
+	}
 
 	<div class="container">
        <form align="center" class="form-signin" action="@routes.SistemaCoordenadorController.criaDisciplina()" method="POST">     
       		<legend style="text-align:center">Criar disciplina</legend>   
 	        <div align="center" class="form-group">
 	      		<label class="control-label" for="textinput">Nome</label>
-				<input id="nomeDisciplina" name="nome" type="text" style='width:256px;' class="form-control" placeholder="Nome da disciplina" required>
+				<input id="nomeDisciplina" name="nome" type="text" style='width:256px;' class="form-control" maxlength="125" placeholder="Nome da disciplina" required>
 				<br>
 				<label class="control-label" for="textinput">Professor</label>
-				<input id="professor" name="professor" type="text" style='width:256px;' class="form-control" placeholder="Nome do professor" required>
+				<input id="professor" name="professor" type="text" style='width:256px;' class="form-control" maxlength="25" placeholder="Nome do professor" required>
 				<br>
 				<label class="control-label" for="textinput">Sala</label>
-				<input id="sala" name="sala" type="text" style='width:256px;' class="form-control" placeholder="Sala de aula da disciplina" required>
+				<input id="sala" name="sala" type="text" style='width:256px;' class="form-control" maxlength="20" placeholder="Sala de aula da disciplina" required>
 				<br>
 				<label class="control-label" for="textinput">Abreviatura</label>
-				<input id="abreviatura" name="abreviatura" type="text" style='width:256px;' class="form-control" placeholder="Abreviatura da disciplina" required>
+				<input id="abreviatura" name="abreviatura" type="text" style='width:256px;' class="form-control" maxlength="12" placeholder="Abreviatura da disciplina" required>
 				<br>
 				<label class="control-label" for="textinput">Créditos</label>
-				<input id="creditos" name="creditos" type="text" style='width:256px;' class="form-control" placeholder="Créditos da disciplina" required>
+				<input id="creditos" name="creditos" type="text" style='width:256px;' class="form-control" maxlength="2" placeholder="Créditos da disciplina" required>
 				<br>
 				<label class="control-label" for="textinput">Código</label>
-	        	<input name="codigo" type="text" class="form-control" id="inputCodigo" style='width:256px;' placeholder="Código da disciplina" required>				
+	        	<input name="codigo" type="text" class="form-control" id="inputCodigo" style='width:256px;' maxlength="10" placeholder="Código da disciplina" required>				
 				
 			</div>
         	<button class="btn btn-lg btn-success" type="submit">Criar</button>

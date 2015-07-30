@@ -55,12 +55,12 @@ public class SistemaCoordenadorController extends Controller {
 	@Transactional
 	public static Result salvarAlteracao(Long id){
 		String codigo = form().bindFromRequest().get("codigo");
-		String nome = form().bindFromRequest().get("nome");
+		String nome = form().bindFromRequest().get("nome").toUpperCase();
 		String creditos = form().bindFromRequest().get("creditos");
 		int creditosInt = Integer.parseInt(creditos);
-		String sala = form().bindFromRequest().get("sala");
-		String professor = form().bindFromRequest().get("professor");
-		String abreviatura = form().bindFromRequest().get("abreviatura");
+		String sala = form().bindFromRequest().get("sala").toUpperCase();
+		String professor = form().bindFromRequest().get("professor").toLowerCase();
+		String abreviatura = form().bindFromRequest().get("abreviatura").toUpperCase();
 
 		Disciplina disciplina = retornaDisciplina(id);
 		disciplina.setCodigo(codigo);
@@ -120,7 +120,12 @@ public class SistemaCoordenadorController extends Controller {
              return novaDisciplina();
         } else {
             Disciplina disciplina = formPreenchido.get();
-            
+            disciplina.setNome(disciplina.getNome().toUpperCase());  
+    		disciplina.setProfessor(disciplina.getProfessor().toLowerCase());
+    		disciplina.setSala(disciplina.getSala().toUpperCase());
+    		disciplina.setAbreviatura(disciplina.getAbreviatura().toUpperCase());
+    		
+    		
             if (disciplina.getNome() != null){
             	dao.persist(disciplina);
                 dao.flush();

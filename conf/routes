@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET       	/                    		controllers.Application.login()
+GET       	/                    		controllers.Application.loginGET()
 POST      	/		                 	controllers.Application.login()
 
 
@@ -40,7 +40,7 @@ GET			/listProblemas				controllers.SistemaCoordenadorController.listaDeProblema
 
 #Usuario indicar intenção de matricula
 POST    	/indicarmatricula 			controllers.SistemaAlunoController.indicarIntencaoDeMatricula(id:Long)
-GET			/indicarmatricula			controllers.SistemaAlunoController.irParaTelaDeIntencaoDeMatricula()
+GET			/indicarmatricula			controllers.SistemaAlunoController.irParaTelaDeIntencaoDeMatricula(email:String)
 
 #Usuario
 GET     	/alterarSenha               controllers.Application.alterarSenha()

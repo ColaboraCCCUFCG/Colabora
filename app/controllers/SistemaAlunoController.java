@@ -40,7 +40,7 @@ public class SistemaAlunoController extends Controller {
 	}
 	
 	@Transactional
-	public static Result irParaTelaDeIntencaoDeMatricula(){
+	public static Result irParaTelaDeIntencaoDeMatricula(String email){
 		
 		return ok(listDisciplinasAluno.render(retornaDisciplinasCadastradas()));
 	}
@@ -48,32 +48,36 @@ public class SistemaAlunoController extends Controller {
 	@Transactional
 	public static Result indicarProblema(Long id, String email){
 		Form<Problema> formPreenchido = formProblema.bindFromRequest();
-		
+
 		Disciplina disc = SistemaCoordenadorController.retornaDisciplina(id);
 		Usuario user = retornaUsuario(email);
-		
+
 		if (formPreenchido.hasErrors()) {
-    		 flash("error", "Aconteceu um erro na indicação do problema!");
-             return Application.sistemaAluno(email);
-        } else {
-            Problema problema = formPreenchido.get();
-			
-           
-            if (problema.getProblema() != null){
-            	dao.persist(problema);
-                dao.flush();
-                flash("success", "Indicação de problema salvo com sucesso!");
-                return Application.sistemaAluno(email);
-            }
-			problema.addDisciplina(disc);
-			problema.addUsuario(user);
-			dao.merge(problema);
-			dao.flush();	
-        }
-    	 flash("error", "Erro no cadastro");
-         return Application.sistemaAluno(email);
+			flash("error", "Aconteceu um erro na indicação do problema!");
+			return Application.sistemaAluno(email);
+		} else {
+			String problemaString = form().bindFromRequest().get("problema");
+			if (problemaString.length() == 0) {
+				flash("error", "Você não digitou nenhum problema!");
+				return Application.sistemaAluno(email);
+			}
+
+			Problema problema = new Problema(problemaString, disc.getNome(), user.getEmail());			
+
+
+			dao.persist(problema);
+
+			dao.flush();
+
+
+			flash("success", "Indicação de problema salvo com sucesso!");
+			return Application.sistemaAluno(email);
+
+
+		}
+		
 	}
-	
+
 	
 	
 }

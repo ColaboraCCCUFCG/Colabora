@@ -21,6 +21,7 @@ public class Application extends Controller {
     	Form<Usuario> formPreenchido = form.bindFromRequest();
     	
     	if (formPreenchido.hasErrors()) {
+    		
             return badRequest(login.render("Error"));
         } else {
             Usuario loginRecebido = formPreenchido.get();
@@ -34,8 +35,16 @@ public class Application extends Controller {
     				}
     			}
     		}
+            flash("error", "Email ou senha incorretos!");
             return ok(login.render("Email ou senha incorretos!"));
         }
+    }
+    
+    @Transactional
+    public static Result loginGET() {
+    	
+            return ok(login.render("Email ou senha incorretos!"));
+        
     }
 
     public static Result contato() {

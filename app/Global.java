@@ -1,10 +1,12 @@
 import models.*;
 import play.*;
+import play.data.Form;
 import models.dao.GenericDAO;
 import play.db.jpa.JPA;
 
 public class Global extends GlobalSettings {
 	private static GenericDAO DAO = new GenericDAO();
+	
 
 	@Override
 	public void onStart(Application app) {
@@ -13,7 +15,7 @@ public class Global extends GlobalSettings {
 		JPA.withTransaction(new play.libs.F.Callback0() {
 			@Override
 			public void invoke() throws Throwable {
-
+				if (DAO.findAllByClass(Disciplina.class).isEmpty()){
 				//USUARIOS
 				Usuario u1 = new Usuario("isabelly.cavalcante@ccc.ufcg.edu.br", "123", true);
 				DAO.persist(u1);
@@ -347,6 +349,7 @@ public class Global extends GlobalSettings {
 				projeto2.mostrarNoHorario();
 				DAO.persist(projeto2);
 				DAO.flush();
+				}
 			}
 		});
 	}

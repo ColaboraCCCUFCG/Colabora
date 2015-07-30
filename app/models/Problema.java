@@ -19,13 +19,11 @@ public class Problema{
 	@Column
 	private String problema;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn
-	private List<Disciplina> disciplinas;
+	@Column
+	private String disciplina;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn
-	private List<Usuario> usuarios;
+	@Column
+	private String emailDoUsuario;
 	
 	
 	// Construtor vazio para o Hibernate criar os objetos
@@ -33,10 +31,18 @@ public class Problema{
 		
 	}
 	
-	public Problema (String problema){
+	public Problema (String problema, String disciplina, String usuario){
 		this.problema = problema;
-		this.disciplinas = new ArrayList<Disciplina>();
-		this.usuarios = new ArrayList<Usuario>();
+		this.disciplina = disciplina;
+		this.emailDoUsuario = usuario;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getProblema() {
@@ -47,25 +53,26 @@ public class Problema{
 		this.problema = problema;
 	}
 
-	public void addDisciplina(Disciplina disciplina) {
-		this.disciplinas.add(disciplina);
-	}
-	
-	public void removeDisciplina(Disciplina disciplina) {
-		this.disciplinas.remove(disciplina);
+	public String getDisciplina() {
+		return disciplina;
 	}
 
-	public void addUsuario(Usuario usuario){
-		this.usuarios.add(usuario);
+	public void setDisciplina(String disciplina) {
+		this.disciplina = disciplina;
 	}
+
+	public String getEmailDoUsuario() {
+		return emailDoUsuario;
+	}
+
+	public void setEmailDoUsuario(String emailDoUsuario) {
+		this.emailDoUsuario = emailDoUsuario;
+	}
+
 	
-	public String getNomeDisciplina(){
-		String nomeDisc = "";
-		for (Disciplina d: disciplinas){
-			nomeDisc = nomeDisc + d.getNome();
-		}
-		return nomeDisc;
-	}
+
+	
+	
 	
 	
 	
